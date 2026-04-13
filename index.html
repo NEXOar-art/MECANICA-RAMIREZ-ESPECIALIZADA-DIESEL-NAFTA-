@@ -229,12 +229,28 @@ font-size: 16px;
 }
 /* Logo Vigia styles */
 .vigia-logo {
-height: 40px;
+height: 50px;
 width: auto;
+filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.4));
+transition: all 0.3s ease;
+}
+.vigia-logo:hover {
+filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.8));
+transform: scale(1.05);
 }
 @media (max-width: 768px) {
 .vigia-logo {
-height: 30px;
+height: 40px;
+}
+}
+.vigia-logo-large {
+height: 80px;
+width: auto;
+filter: drop-shadow(0 0 12px rgba(255, 215, 0, 0.6));
+}
+@media (max-width: 768px) {
+.vigia-logo-large {
+height: 60px;
 }
 }
 </style>
@@ -249,7 +265,7 @@ height: 30px;
 </button>
 <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 md:static md:translate-x-0 md:translate-y-0 flex items-center gap-2 md:gap-3">
 <!-- LOGO VIGIA AGREGADO -->
-<img src="vigia-logo.png" alt="Vigia Service Oficial" class="vigia-logo">
+<img src="VIGIA.png" alt="Vigia Service Oficial - Precisión y Protección" class="vigia-logo">
 <a href="#" class="font-display font-bold text-xs sm:text-sm md:text-base lg:text-lg text-primary-yellow tracking-wide uppercase text-center px-2 hidden sm:block">
 BIANCHINI DANIEL DON TELMO-SERVICE OFICIAL VIGIA.
 </a>
@@ -279,7 +295,8 @@ Pre-Diagnóstico
 <i class="fa-solid fa-times"></i>
 </button>
 <!-- LOGO VIGIA EN MENU MOBILE -->
-<img src="vigia-logo.png" alt="Vigia Service Oficial" class="vigia-logo mb-4">
+<img src="VIGIA.png" alt="Vigia Service Oficial" class="vigia-logo-large mb-4">
+<p class="text-primary-yellow text-sm font-bold text-center">PRECISIÓN Y PROTECCIÓN</p>
 <a href="#diagnostico" class="mobile-menu-link text-xl sm:text-2xl font-bold text-primary-yellow hover:text-white transition py-4 border-b border-gray-700 w-full text-center">
 Pre-Diagnóstico
 </a>
@@ -315,6 +332,10 @@ class="parallax-image moving-bg w-full h-full object-cover opacity-40">
 <div class="container mx-auto px-4 md:px-6 relative z-10">
 <div class="space-y-4 sm:space-y-6 md:space-y-8 text-center md:text-left">
 <div class="fade-in-up" style="animation-delay: 0.2s;">
+<!-- LOGO VIGIA PROMINENTE EN HERO -->
+<div class="flex justify-center md:justify-start mb-4">
+<img src="VIGIA.png" alt="Vigia - Precisión y Protección" class="vigia-logo-large">
+</div>
 <div class="inline-block bg-primary-yellow/20 border border-primary-yellow/50 text-primary-yellow px-3 sm:px-4 py-1 rounded-full text-xs sm:text-sm font-bold uppercase tracking-widest">
 <i class="fa-solid fa-car mr-2"></i> <span class="hidden sm:inline">SERVICE OFICIAL VIGÍA</span><span class="sm:hidden">VIGÍA</span>
 </div>
@@ -350,6 +371,10 @@ Pre-Diagnóstico <i class="fa-solid fa-arrow-right group-hover:translate-x-2 tra
 <section id="servicios" class="py-12 sm:py-16 md:py-24 bg-gradient-to-b from-gray-900 to-primary-dark">
 <div class="container mx-auto px-4 md:px-6">
 <div class="text-center mb-8 sm:mb-12 md:mb-16">
+<!-- LOGO VIGIA EN SERVICIOS -->
+<div class="flex justify-center mb-4">
+<img src="VIGIA.png" alt="Vigia Service Oficial" class="vigia-logo">
+</div>
 <h2 class="font-display font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-primary-yellow mb-3 sm:mb-4 glow-text">NUESTROS SERVICIOS</h2>
 <div class="racing-line max-w-md mx-auto"></div>
 </div>
@@ -467,7 +492,7 @@ Pre-Diagnóstico <i class="fa-solid fa-arrow-right group-hover:translate-x-2 tra
 <div class="container mx-auto px-4 md:px-6">
 <div class="text-center">
 <!-- LOGO VIGIA EN FOOTER -->
-<img src="vigia-logo.png" alt="Vigia Service Oficial" class="vigia-logo mx-auto mb-4">
+<img src="VIGIA.png" alt="Vigia Service Oficial - Precisión y Protección" class="vigia-logo-large mx-auto mb-4">
 <div class="font-display font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl text-primary-yellow mb-3 sm:mb-4">BIANCHINI DANIEL DON TELMO-SERVICE OFICIAL VIGIA.</div>
 <p class="text-gray-400 text-xs sm:text-sm md:text-base mb-4 sm:mb-6">Especialistas en diagnóstico y reparación electrónica automotriz</p>
 
@@ -754,7 +779,6 @@ setInterval(checkStatus, 60000);
 </script>
 </body>
 </html>
-
 
 
 
