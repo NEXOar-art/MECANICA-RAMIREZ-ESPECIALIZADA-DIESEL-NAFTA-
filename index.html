@@ -21,15 +21,15 @@ display: ['Orbitron', 'sans-serif'],
 },
 colors: {
 primary: {
-blue: '#00D4FF',
+yellow: '#FFD700',
 dark: '#0A0F1A',
 gray: '#1E293B',
 light: '#F8FAFC',
 }
 },
 boxShadow: {
-'neon': '0 0 20px rgba(0, 212, 255, 0.5)',
-'glow': '0 0 30px rgba(0, 212, 255, 0.3)',
+'neon': '0 0 20px rgba(255, 215, 0, 0.5)',
+'glow': '0 0 30px rgba(255, 215, 0, 0.3)',
 }
 }
 }
@@ -49,15 +49,15 @@ touch-action: manipulation;
 background: rgba(30, 41, 59, 0.6);
 backdrop-filter: blur(12px);
 -webkit-backdrop-filter: blur(12px);
-border: 1px solid rgba(0, 212, 255, 0.2);
+border: 1px solid rgba(255, 215, 0, 0.2);
 }
-.glow-text { text-shadow: 0 0 10px rgba(0, 212, 255, 0.7); }
+.glow-text { text-shadow: 0 0 10px rgba(255, 215, 0, 0.7); }
 .pulse-glow { animation: pulse-glow 3s infinite; }
 @keyframes pulse-glow { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
 .fade-in-up { opacity: 0; transform: translateY(40px); animation: fadeInUp 1.2s ease-out forwards; }
 @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
 .hover-glow { transition: all 0.4s; }
-.hover-glow:hover { box-shadow: 0 0 35px rgba(0, 212, 255, 0.8); transform: translateY(-10px) scale(1.05); }
+.hover-glow:hover { box-shadow: 0 0 35px rgba(255, 215, 0, 0.8); transform: translateY(-10px) scale(1.05); }
 /* EFECTOS DE MOVIMIENTO PARA LA IMAGEN DE FONDO */
 .parallax-image {
 transition: transform 0.5s ease-out;
@@ -139,16 +139,16 @@ panHorizontal 35s ease-in-out infinite;
 }
 /* Resto de estilos */
 .input-glow { border-color: #334155; transition: all 0.3s; }
-.input-glow:focus { border-color: #00D4FF; box-shadow: 0 0 20px rgba(0, 212, 255, 0.5); }
+.input-glow:focus { border-color: #FFD700; box-shadow: 0 0 20px rgba(255, 215, 0, 0.5); }
 .neon-pulse { animation: neonPulse 4s ease-in-out infinite alternate; }
 @keyframes neonPulse {
-from { text-shadow: 0 0 10px #00D4FF, 0 0 20px #00D4FF, 0 0 30px #00D4FF; }
-to { text-shadow: 0 0 20px #00D4FF, 0 0 40px #00D4FF, 0 0 60px #00D4FF, 0 0 80px #00D4FF; }
+from { text-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700, 0 0 30px #FFD700; }
+to { text-shadow: 0 0 20px #FFD700, 0 0 40px #FFD700, 0 0 60px #FFD700, 0 0 80px #FFD700; }
 }
 .racing-line {
 height: 3px;
-background: linear-gradient(90deg, transparent, #00D4FF, transparent);
-box-shadow: 0 0 10px #00D4FF;
+background: linear-gradient(90deg, transparent, #FFD700, transparent);
+box-shadow: 0 0 10px #FFD700;
 }
 .animated-gradient {
 background: linear-gradient(-45deg, #0A0F1A, #1E293B, #0A0F1A, #1a2740);
@@ -227,6 +227,16 @@ input, select, textarea {
 font-size: 16px;
 }
 }
+/* Logo Vigia styles */
+.vigia-logo {
+height: 40px;
+width: auto;
+}
+@media (max-width: 768px) {
+.vigia-logo {
+height: 30px;
+}
+}
 </style>
 </head>
 <body class="antialiased relative">
@@ -234,12 +244,19 @@ font-size: 16px;
 <nav class="fixed w-full z-50 top-0 glass border-b border-gray-700">
 <div class="container mx-auto px-4 h-20 flex items-center justify-between relative">
 <!-- Mobile Menu Button -->
-<button id="mobile-menu-btn" class="md:hidden text-primary-blue text-2xl p-2 z-50">
+<button id="mobile-menu-btn" class="md:hidden text-primary-yellow text-2xl p-2 z-50">
 <i class="fa-solid fa-bars"></i>
 </button>
-<a href="#" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 md:static md:translate-x-0 md:translate-y-0 font-display font-bold text-xs sm:text-sm md:text-base lg:text-lg text-primary-blue tracking-wide uppercase text-center px-2">
+<div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 md:static md:translate-x-0 md:translate-y-0 flex items-center gap-2 md:gap-3">
+<!-- LOGO VIGIA AGREGADO -->
+<img src="vigia-logo.png" alt="Vigia Service Oficial" class="vigia-logo">
+<a href="#" class="font-display font-bold text-xs sm:text-sm md:text-base lg:text-lg text-primary-yellow tracking-wide uppercase text-center px-2 hidden sm:block">
 BIANCHINI DANIEL DON TELMO-SERVICE OFICIAL VIGIA.
 </a>
+<a href="#" class="font-display font-bold text-xs text-primary-yellow tracking-wide uppercase text-center px-2 sm:hidden">
+SERVICE OFICIAL VIGIA
+</a>
+</div>
 <div class="ml-auto flex items-center gap-4 md:gap-6">
 <!-- ESTADO ABIERTO/CERRADO - INDICADOR INTELIGENTE -->
 <div id="status-badge-desktop" class="hidden md:flex items-center px-4 py-2 rounded-full text-xs md:text-sm font-bold uppercase tracking-wide bg-gray-800 border border-gray-700">
@@ -247,7 +264,7 @@ BIANCHINI DANIEL DON TELMO-SERVICE OFICIAL VIGIA.
 <span id="status-text-desktop">Verificando...</span>
 </div>
 <div class="hidden md:flex items-center gap-4">
-<a href="#diagnostico" class="bg-primary-blue hover:bg-blue-500 text-primary-dark px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-bold transition hover:shadow-neon uppercase text-xs sm:text-sm">
+<a href="#diagnostico" class="bg-primary-yellow hover:bg-yellow-400 text-primary-dark px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-bold transition hover:shadow-neon uppercase text-xs sm:text-sm">
 Pre-Diagnóstico
 </a>
 </div>
@@ -258,13 +275,15 @@ Pre-Diagnóstico
 <!-- Mobile Menu -->
 <div id="mobile-menu" class="mobile-menu fixed inset-0 z-40 bg-primary-dark/95 backdrop-blur-lg md:hidden">
 <div class="flex flex-col items-center justify-center h-full space-y-6 sm:space-y-8 p-6 sm:p-8">
-<button id="close-menu-btn" class="absolute top-6 right-6 text-primary-blue text-3xl p-2">
+<button id="close-menu-btn" class="absolute top-6 right-6 text-primary-yellow text-3xl p-2">
 <i class="fa-solid fa-times"></i>
 </button>
-<a href="#diagnostico" class="mobile-menu-link text-xl sm:text-2xl font-bold text-primary-blue hover:text-white transition py-4 border-b border-gray-700 w-full text-center">
+<!-- LOGO VIGIA EN MENU MOBILE -->
+<img src="vigia-logo.png" alt="Vigia Service Oficial" class="vigia-logo mb-4">
+<a href="#diagnostico" class="mobile-menu-link text-xl sm:text-2xl font-bold text-primary-yellow hover:text-white transition py-4 border-b border-gray-700 w-full text-center">
 Pre-Diagnóstico
 </a>
-<a href="#servicios" class="mobile-menu-link text-xl sm:text-2xl font-bold text-gray-300 hover:text-primary-blue transition py-4 border-b border-gray-700 w-full text-center">
+<a href="#servicios" class="mobile-menu-link text-xl sm:text-2xl font-bold text-gray-300 hover:text-primary-yellow transition py-4 border-b border-gray-700 w-full text-center">
 Servicios
 </a>
 <div id="status-badge-mobile-menu" class="flex items-center px-6 py-3 rounded-full text-sm font-bold uppercase tracking-wide bg-gray-800 border border-gray-700 mt-4">
@@ -277,7 +296,7 @@ Servicios
 
 <!-- Botón flotante de turno -->
 <div class="fixed bottom-24 md:bottom-10 right-4 left-4 md:left-auto z-50 float-btn px-4">
-<a href="#diagnostico" class="bg-primary-blue hover:bg-blue-500 text-primary-dark px-6 py-4 rounded-full font-bold shadow-neon transition transform hover:scale-105 flex items-center justify-center gap-3 text-base hover-glow w-full md:w-auto btn-full-mobile">
+<a href="#diagnostico" class="bg-primary-yellow hover:bg-yellow-400 text-primary-dark px-6 py-4 rounded-full font-bold shadow-neon transition transform hover:scale-105 flex items-center justify-center gap-3 text-base hover-glow w-full md:w-auto btn-full-mobile">
 <i class="fa-solid fa-calendar-check"></i> <span class="hidden sm:inline">Pedir Turno</span><span class="sm:hidden">Turno</span>
 </a>
 </div>
@@ -296,7 +315,7 @@ class="parallax-image moving-bg w-full h-full object-cover opacity-40">
 <div class="container mx-auto px-4 md:px-6 relative z-10">
 <div class="space-y-4 sm:space-y-6 md:space-y-8 text-center md:text-left">
 <div class="fade-in-up" style="animation-delay: 0.2s;">
-<div class="inline-block bg-primary-blue/20 border border-primary-blue/50 text-primary-blue px-3 sm:px-4 py-1 rounded-full text-xs sm:text-sm font-bold uppercase tracking-widest">
+<div class="inline-block bg-primary-yellow/20 border border-primary-yellow/50 text-primary-yellow px-3 sm:px-4 py-1 rounded-full text-xs sm:text-sm font-bold uppercase tracking-widest">
 <i class="fa-solid fa-car mr-2"></i> <span class="hidden sm:inline">SERVICE OFICIAL VIGÍA</span><span class="sm:hidden">VIGÍA</span>
 </div>
 </div>
@@ -304,22 +323,22 @@ class="parallax-image moving-bg w-full h-full object-cover opacity-40">
 BIANCHINI DANIEL DON TELMO-SERVICE OFICIAL VIGIA.
 </h1>
 <!-- DIRECCIÓN AGREGADA -->
-<p class="text-primary-blue glow-text fade-in-up text-sm sm:text-base md:text-lg font-bold mt-1 sm:mt-2 flex items-center justify-center md:justify-start gap-2" style="animation-delay: 0.9s;">
+<p class="text-primary-yellow glow-text fade-in-up text-sm sm:text-base md:text-lg font-bold mt-1 sm:mt-2 flex items-center justify-center md:justify-start gap-2" style="animation-delay: 0.9s;">
 <i class="fa-solid fa-location-dot"></i> <span>Av. Kennedy 180, San Pedro</span>
 </p>
 <div class="racing-line max-w-md mx-auto md:mx-0 fade-in-up" style="animation-delay: 1.2s;"></div>
-<p class="text-lg sm:text-xl md:text-2xl lg:text-3xl text-primary-blue glow-text fade-in-up hero-subtitle hero-subtitle-fade" style="animation-delay: 0.8s;">DIAGNÓSTICO Y REPARACIÓN ESPECIALIZADA</p>
+<p class="text-lg sm:text-xl md:text-2xl lg:text-3xl text-primary-yellow glow-text fade-in-up hero-subtitle hero-subtitle-fade" style="animation-delay: 0.8s;">DIAGNÓSTICO Y REPARACIÓN ESPECIALIZADA</p>
 <p class="text-gray-300 text-xs sm:text-sm md:text-base lg:text-lg max-w-2xl mx-auto md:mx-0 fade-in-up hero-desc hero-desc-fade px-2" style="animation-delay: 1s;">
 Diagnóstico computarizado, inyección electrónica y mantenimiento integral para tu vehículo. Agenda tu turno rápido por WhatsApp.
 </p>
 <!-- CONTADORES CON UN SOLO SIGNO POR DATO -->
 <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 md:gap-6 pt-4 sm:pt-6 mx-auto md:mx-0 max-w-lg fade-in-up counters-shift px-2" style="animation-delay: 1.4s;">
-<div class="text-center p-2 sm:p-3"><span class="block hero-counter text-2xl sm:text-3xl md:text-4xl font-bold text-primary-blue"><span id="counter1">0</span></span><span class="hero-counter-text block text-xs sm:text-sm text-gray-400 mt-1">Años experiencia</span></div>
-<div class="text-center p-2 sm:p-3"><span class="block hero-counter text-2xl sm:text-3xl md:text-4xl font-bold text-primary-blue"><span id="counter2">0</span></span><span class="hero-counter-text block text-xs sm:text-sm text-gray-400 mt-1">Vehículos atendidos</span></div>
-<div class="text-center p-2 sm:p-3"><span class="block hero-counter text-2xl sm:text-3xl md:text-4xl font-bold text-primary-blue"><span id="counter3">0</span></span><span class="hero-counter-text block text-xs sm:text-sm text-gray-400 mt-1">Satisfacción</span></div>
+<div class="text-center p-2 sm:p-3"><span class="block hero-counter text-2xl sm:text-3xl md:text-4xl font-bold text-primary-yellow"><span id="counter1">0</span></span><span class="hero-counter-text block text-xs sm:text-sm text-gray-400 mt-1">Años experiencia</span></div>
+<div class="text-center p-2 sm:p-3"><span class="block hero-counter text-2xl sm:text-3xl md:text-4xl font-bold text-primary-yellow"><span id="counter2">0</span></span><span class="hero-counter-text block text-xs sm:text-sm text-gray-400 mt-1">Vehículos atendidos</span></div>
+<div class="text-center p-2 sm:p-3"><span class="block hero-counter text-2xl sm:text-3xl md:text-4xl font-bold text-primary-yellow"><span id="counter3">0</span></span><span class="hero-counter-text block text-xs sm:text-sm text-gray-400 mt-1">Satisfacción</span></div>
 </div>
 <div class="flex justify-center md:justify-start pt-4 sm:pt-6 fade-in-up btn-full-mobile px-2" style="animation-delay: 1.6s;">
-<a href="#diagnostico" class="bg-primary-blue text-primary-dark px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 rounded font-bold uppercase tracking-wide hover:shadow-neon transition flex items-center justify-center gap-2 group hover-glow w-full md:w-auto text-xs sm:text-sm md:text-base">
+<a href="#diagnostico" class="bg-primary-yellow text-primary-dark px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 rounded font-bold uppercase tracking-wide hover:shadow-neon transition flex items-center justify-center gap-2 group hover-glow w-full md:w-auto text-xs sm:text-sm md:text-base">
 Pre-Diagnóstico <i class="fa-solid fa-arrow-right group-hover:translate-x-2 transition"></i>
 </a>
 </div>
@@ -331,23 +350,23 @@ Pre-Diagnóstico <i class="fa-solid fa-arrow-right group-hover:translate-x-2 tra
 <section id="servicios" class="py-12 sm:py-16 md:py-24 bg-gradient-to-b from-gray-900 to-primary-dark">
 <div class="container mx-auto px-4 md:px-6">
 <div class="text-center mb-8 sm:mb-12 md:mb-16">
-<h2 class="font-display font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-primary-blue mb-3 sm:mb-4 glow-text">NUESTROS SERVICIOS</h2>
+<h2 class="font-display font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-primary-yellow mb-3 sm:mb-4 glow-text">NUESTROS SERVICIOS</h2>
 <div class="racing-line max-w-md mx-auto"></div>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
 <div class="glass p-4 sm:p-5 md:p-6 lg:p-8 rounded-xl hover-glow">
-<div class="text-primary-blue text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-2 sm:mb-3 md:mb-4"><i class="fa-solid fa-microchip"></i></div>
-<h3 class="font-display font-bold text-base sm:text-lg md:text-xl lg:text-2xl mb-1 sm:mb-2 md:mb-3 text-primary-blue">Diagnóstico Computarizado</h3>
+<div class="text-primary-yellow text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-2 sm:mb-3 md:mb-4"><i class="fa-solid fa-microchip"></i></div>
+<h3 class="font-display font-bold text-base sm:text-lg md:text-xl lg:text-2xl mb-1 sm:mb-2 md:mb-3 text-primary-yellow">Diagnóstico Computarizado</h3>
 <p class="text-gray-400 text-xs sm:text-sm md:text-base">Escaneo completo de sistemas electrónicos con equipos de última generación para todas las marcas de vehículos.</p>
 </div>
 <div class="glass p-4 sm:p-5 md:p-6 lg:p-8 rounded-xl hover-glow">
-<div class="text-primary-blue text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-2 sm:mb-3 md:mb-4"><i class="fa-solid fa-gas-pump"></i></div>
-<h3 class="font-display font-bold text-base sm:text-lg md:text-xl lg:text-2xl mb-1 sm:mb-2 md:mb-3 text-primary-blue">Inyección Electrónica</h3>
+<div class="text-primary-yellow text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-2 sm:mb-3 md:mb-4"><i class="fa-solid fa-gas-pump"></i></div>
+<h3 class="font-display font-bold text-base sm:text-lg md:text-xl lg:text-2xl mb-1 sm:mb-2 md:mb-3 text-primary-yellow">Inyección Electrónica</h3>
 <p class="text-gray-400 text-xs sm:text-sm md:text-base">Limpieza, calibración y reparación de inyectores, sensores y sistemas de alimentación de combustible.</p>
 </div>
 <div class="glass p-4 sm:p-5 md:p-6 lg:p-8 rounded-xl hover-glow">
-<div class="text-primary-blue text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-2 sm:mb-3 md:mb-4"><i class="fa-solid fa-screwdriver-wrench"></i></div>
-<h3 class="font-display font-bold text-base sm:text-lg md:text-xl lg:text-2xl mb-1 sm:mb-2 md:mb-3 text-primary-blue">Mantenimiento Integral</h3>
+<div class="text-primary-yellow text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-2 sm:mb-3 md:mb-4"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+<h3 class="font-display font-bold text-base sm:text-lg md:text-xl lg:text-2xl mb-1 sm:mb-2 md:mb-3 text-primary-yellow">Mantenimiento Integral</h3>
 <p class="text-gray-400 text-xs sm:text-sm md:text-base">Servicio completo de mantenimiento preventivo y correctivo para garantizar el óptimo funcionamiento de tu auto.</p>
 </div>
 </div>
@@ -359,34 +378,34 @@ Pre-Diagnóstico <i class="fa-solid fa-arrow-right group-hover:translate-x-2 tra
 <div class="container mx-auto px-4 md:px-6">
 <div class="max-w-4xl mx-auto">
 <div class="text-center mb-8 sm:mb-12">
-<h2 class="font-display font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-primary-blue mb-3 sm:mb-4 glow-text">PRE-DIAGNÓSTICO ONLINE</h2>
+<h2 class="font-display font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-primary-yellow mb-3 sm:mb-4 glow-text">PRE-DIAGNÓSTICO ONLINE</h2>
 <div class="racing-line max-w-md mx-auto mb-3 sm:mb-4 md:mb-6"></div>
 <p class="text-gray-300 text-xs sm:text-sm md:text-base lg:text-lg px-2">Completa el formulario y recibe una evaluación inicial de tu vehículo</p>
 </div>
 <form id="triageForm" class="glass p-4 sm:p-6 md:p-8 lg:p-10 rounded-2xl space-y-3 sm:space-y-4 md:space-y-6">
 <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 md:gap-6">
 <div>
-<label class="block text-primary-blue font-bold mb-1 sm:mb-2 text-xs sm:text-sm md:text-base">Nombre completo</label>
+<label class="block text-primary-yellow font-bold mb-1 sm:mb-2 text-xs sm:text-sm md:text-base">Nombre completo</label>
 <input type="text" name="name" required class="input-glow w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-gray-800/50 border border-gray-600 text-white focus:outline-none text-xs sm:text-sm md:text-base" placeholder="Tu nombre">
 </div>
 <div>
-<label class="block text-primary-blue font-bold mb-1 sm:mb-2 text-xs sm:text-sm md:text-base">WhatsApp</label>
+<label class="block text-primary-yellow font-bold mb-1 sm:mb-2 text-xs sm:text-sm md:text-base">WhatsApp</label>
 <input type="tel" name="phone" required class="input-glow w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-gray-800/50 border border-gray-600 text-white focus:outline-none text-xs sm:text-sm md:text-base" placeholder="+54 9 3329 ...">
 </div>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 md:gap-6">
 <div>
-<label class="block text-primary-blue font-bold mb-1 sm:mb-2 text-xs sm:text-sm md:text-base">Marca y modelo del vehículo</label>
+<label class="block text-primary-yellow font-bold mb-1 sm:mb-2 text-xs sm:text-sm md:text-base">Marca y modelo del vehículo</label>
 <input type="text" name="vehicle" required class="input-glow w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-gray-800/50 border border-gray-600 text-white focus:outline-none text-xs sm:text-sm md:text-base" placeholder="Ej: Volkswagen Gol Trend">
 </div>
 <div>
-<label class="block text-primary-blue font-bold mb-1 sm:mb-2 text-xs sm:text-sm md:text-base">Kilometraje</label>
+<label class="block text-primary-yellow font-bold mb-1 sm:mb-2 text-xs sm:text-sm md:text-base">Kilometraje</label>
 <input type="number" name="km" required class="input-glow w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-gray-800/50 border border-gray-600 text-white focus:outline-none text-xs sm:text-sm md:text-base" placeholder="Ej: 85000">
 </div>
 </div>
 <!-- CAMPO: TIPO DE FALLA -->
 <div>
-<label class="block text-primary-blue font-bold mb-1 sm:mb-2 text-xs sm:text-sm md:text-base">Tipo de falla principal</label>
+<label class="block text-primary-yellow font-bold mb-1 sm:mb-2 text-xs sm:text-sm md:text-base">Tipo de falla principal</label>
 <select name="failureType" required class="input-glow w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-gray-800/50 border border-gray-600 text-white focus:outline-none text-xs sm:text-sm md:text-base">
 <option value="">Selecciona una opción...</option>
 <option value="Motor - Pérdida de potencia">Motor - Pérdida de potencia</option>
@@ -409,12 +428,12 @@ Pre-Diagnóstico <i class="fa-solid fa-arrow-right group-hover:translate-x-2 tra
 </select>
 </div>
 <div>
-<label class="block text-primary-blue font-bold mb-1 sm:mb-2 text-xs sm:text-sm md:text-base">Descripción detallada de la falla</label>
+<label class="block text-primary-yellow font-bold mb-1 sm:mb-2 text-xs sm:text-sm md:text-base">Descripción detallada de la falla</label>
 <textarea name="symptoms" required rows="4" class="input-glow w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-gray-800/50 border border-gray-600 text-white focus:outline-none text-xs sm:text-sm md:text-base" placeholder="Describe los síntomas que presenta el vehículo..."></textarea>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 md:gap-6">
 <div>
-<label class="block text-primary-blue font-bold mb-1 sm:mb-2 text-xs sm:text-sm md:text-base">¿Cuándo ocurre la falla?</label>
+<label class="block text-primary-yellow font-bold mb-1 sm:mb-2 text-xs sm:text-sm md:text-base">¿Cuándo ocurre la falla?</label>
 <select name="context" class="input-glow w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-gray-800/50 border border-gray-600 text-white focus:outline-none text-xs sm:text-sm md:text-base">
 <option value="Constante">Constante</option>
 <option value="En frío">En frío</option>
@@ -425,7 +444,7 @@ Pre-Diagnóstico <i class="fa-solid fa-arrow-right group-hover:translate-x-2 tra
 </select>
 </div>
 <div>
-<label class="block text-primary-blue font-bold mb-1 sm:mb-2 text-xs sm:text-sm md:text-base">Tipo de uso del vehículo</label>
+<label class="block text-primary-yellow font-bold mb-1 sm:mb-2 text-xs sm:text-sm md:text-base">Tipo de uso del vehículo</label>
 <select name="heavyContext" class="input-glow w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-gray-800/50 border border-gray-600 text-white focus:outline-none text-xs sm:text-sm md:text-base">
 <option value="Uso particular">Uso particular</option>
 <option value="Taxi/Remis">Taxi/Remis</option>
@@ -435,7 +454,7 @@ Pre-Diagnóstico <i class="fa-solid fa-arrow-right group-hover:translate-x-2 tra
 </select>
 </div>
 </div>
-<button type="submit" class="w-full bg-primary-blue hover:bg-blue-500 text-primary-dark font-bold py-2 sm:py-3 md:py-4 rounded-lg transition hover:shadow-neon uppercase text-xs sm:text-sm md:text-base lg:text-lg">
+<button type="submit" class="w-full bg-primary-yellow hover:bg-yellow-400 text-primary-dark font-bold py-2 sm:py-3 md:py-4 rounded-lg transition hover:shadow-neon uppercase text-xs sm:text-sm md:text-base lg:text-lg">
 <i class="fa-brands fa-whatsapp mr-2"></i> Enviar Pre-Diagnóstico
 </button>
 </form>
@@ -447,17 +466,19 @@ Pre-Diagnóstico <i class="fa-solid fa-arrow-right group-hover:translate-x-2 tra
 <footer class="bg-primary-dark border-t border-gray-800 py-8 sm:py-12">
 <div class="container mx-auto px-4 md:px-6">
 <div class="text-center">
-<div class="font-display font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl text-primary-blue mb-3 sm:mb-4">BIANCHINI DANIEL DON TELMO-SERVICE OFICIAL VIGIA.</div>
+<!-- LOGO VIGIA EN FOOTER -->
+<img src="vigia-logo.png" alt="Vigia Service Oficial" class="vigia-logo mx-auto mb-4">
+<div class="font-display font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl text-primary-yellow mb-3 sm:mb-4">BIANCHINI DANIEL DON TELMO-SERVICE OFICIAL VIGIA.</div>
 <p class="text-gray-400 text-xs sm:text-sm md:text-base mb-4 sm:mb-6">Especialistas en diagnóstico y reparación electrónica automotriz</p>
 
 <!-- DATOS DE CONTACTO EN TEXTO -->
 <div class="mb-6 sm:mb-8 space-y-2 sm:space-y-3">
 <p class="text-gray-300 text-sm sm:text-base md:text-lg flex items-center justify-center gap-2">
-<i class="fa-solid fa-location-dot text-primary-blue"></i>
+<i class="fa-solid fa-location-dot text-primary-yellow"></i>
 <span>Av. Kennedy 180, B2930 San Pedro, Provincia de Buenos Aires</span>
 </p>
 <p class="text-gray-300 text-sm sm:text-base md:text-lg flex items-center justify-center gap-2">
-<i class="fa-brands fa-whatsapp text-primary-blue"></i>
+<i class="fa-brands fa-whatsapp text-primary-yellow"></i>
 <span>WhatsApp: 03329595132</span>
 </p>
 </div>
@@ -465,11 +486,11 @@ Pre-Diagnóstico <i class="fa-solid fa-arrow-right group-hover:translate-x-2 tra
 <!-- BOTONES DE CONTACTO -->
 <div class="flex justify-center gap-4 sm:gap-6 mb-6">
 <!-- BOTÓN DE UBICACIÓN -->
-<a href="https://maps.app.goo.gl/UnWgY3EVPgnxvMYe7" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-primary-blue text-2xl sm:text-3xl transition" title="Ver ubicación">
+<a href="https://maps.app.goo.gl/UnWgY3EVPgnxvMYe7" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-primary-yellow text-2xl sm:text-3xl transition" title="Ver ubicación">
 <i class="fa-solid fa-location-dot"></i>
 </a>
 <!-- BOTÓN DE WHATSAPP -->
-<a href="https://wa.me/5493329595132" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-primary-blue text-2xl sm:text-3xl transition" title="Contactar por WhatsApp">
+<a href="https://wa.me/5493329595132" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-primary-yellow text-2xl sm:text-3xl transition" title="Contactar por WhatsApp">
 <i class="fa-brands fa-whatsapp"></i>
 </a>
 </div>
