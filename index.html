@@ -328,10 +328,21 @@ border-radius: 16px;
 }
 }
 
-/* BOTÓN FLOTANTE DE AUXILIO MECÁNICO - POSICIÓN SUPERIOR AJUSTADA */
+/* ============================================ */
+/* LAYOUT INTELIGENTE - ELEMENTOS SUPERIORES    */
+/* ============================================ */
+
+/* DESKTOP: Layout horizontal - elementos separados lateralmente */
+/* MÓVIL: Layout vertical - elementos apilados jerárquicamente   */
+
+/* INDICADOR DE HORARIO - MÓVIL */
+#status-bar-mobile {
+top: 5rem; /* Debajo del navbar (80px = 5rem) */
+}
+
+/* BOTÓN AUXILIO MECÁNICO - POSICIÓN RESPONSIVA */
 .axile-float-btn {
-position: fixed;
-top: 6rem;
+top: 8.5rem; /* Debajo del status-bar en móvil */
 right: 1rem;
 left: 1rem;
 z-index: 55;
@@ -341,11 +352,81 @@ pointer-events: none;
 }
 @media (min-width: 768px) {
 .axile-float-btn {
-top: 7rem;
+top: 7rem; /* Desktop: posición original */
 right: 2rem;
 left: auto;
 }
 }
+
+/* TARJETA SERVICIO DE GRÚA - POSICIÓN RESPONSIVA */
+.tow-card {
+top: 12.5rem; /* Debajo del botón auxilio en móvil */
+left: 50%;
+transform: translateX(-50%);
+z-index: 52;
+background: rgba(220, 38, 38, 0.15);
+border: 2px solid #DC2626;
+border-radius: 9999px;
+padding: 0.4rem 1rem;
+display: flex;
+align-items: center;
+gap: 0.5rem;
+animation: towBlink 1.2s ease-in-out infinite;
+box-shadow: 0 0 15px rgba(220, 38, 38, 0.5);
+}
+@media (min-width: 768px) {
+.tow-card {
+top: 5.5rem; /* Desktop: posición original arriba */
+}
+}
+
+/* BADGE ESPECIALISTAS - POSICIÓN RESPONSIVA */
+.hero-badge {
+display: inline-block;
+}
+@media (max-width: 768px) {
+.hero-badge {
+display: block;
+margin: 0 auto;
+}
+}
+
+@keyframes towBlink {
+0%, 100% { 
+opacity: 1; 
+box-shadow: 0 0 15px rgba(220, 38, 38, 0.5);
+border-color: #DC2626;
+}
+50% { 
+opacity: 0.85; 
+box-shadow: 0 0 25px rgba(220, 38, 38, 0.9);
+border-color: #FCA5A5;
+}
+}
+.tow-card i {
+color: #FCA5A5;
+animation: towIconPulse 1.2s ease-in-out infinite;
+}
+@keyframes towIconPulse {
+0%, 100% { transform: scale(1); }
+50% { transform: scale(1.2); }
+}
+.tow-card span {
+color: #FCA5A5;
+font-weight: 700;
+font-size: 0.75rem;
+text-transform: uppercase;
+letter-spacing: 0.05em;
+}
+@media (max-width: 768px) {
+.tow-card {
+padding: 0.3rem 0.8rem;
+}
+.tow-card span {
+font-size: 0.7rem;
+}
+}
+
 .axile-btn {
 pointer-events: auto;
 position: relative;
@@ -571,60 +652,6 @@ transform: translateY(-2px);
 .designer-link i {
 font-size: 0.7rem;
 }
-
-/* TARJETA SERVICIO DE GRÚA - TITILANTE ROJO - POSICIÓN AJUSTADA */
-.tow-card {
-position: fixed;
-top: 5.5rem;
-left: 50%;
-transform: translateX(-50%);
-z-index: 52;
-background: rgba(220, 38, 38, 0.15);
-border: 2px solid #DC2626;
-border-radius: 9999px;
-padding: 0.4rem 1rem;
-display: flex;
-align-items: center;
-gap: 0.5rem;
-animation: towBlink 1.2s ease-in-out infinite;
-box-shadow: 0 0 15px rgba(220, 38, 38, 0.5);
-}
-@keyframes towBlink {
-0%, 100% { 
-opacity: 1; 
-box-shadow: 0 0 15px rgba(220, 38, 38, 0.5);
-border-color: #DC2626;
-}
-50% { 
-opacity: 0.85; 
-box-shadow: 0 0 25px rgba(220, 38, 38, 0.9);
-border-color: #FCA5A5;
-}
-}
-.tow-card i {
-color: #FCA5A5;
-animation: towIconPulse 1.2s ease-in-out infinite;
-}
-@keyframes towIconPulse {
-0%, 100% { transform: scale(1); }
-50% { transform: scale(1.2); }
-}
-.tow-card span {
-color: #FCA5A5;
-font-weight: 700;
-font-size: 0.75rem;
-text-transform: uppercase;
-letter-spacing: 0.05em;
-}
-@media (max-width: 768px) {
-.tow-card {
-top: 5rem;
-padding: 0.3rem 0.8rem;
-}
-.tow-card span {
-font-size: 0.7rem;
-}
-}
 </style>
 </head>
 <body class="antialiased relative">
@@ -661,8 +688,8 @@ Pre-Diagnóstico
 </div>
 </div>
 </div>
-<!-- ESTADO MOBILE -->
-<div id="status-bar-mobile" class="md:hidden w-full py-2 text-center text-xs font-bold uppercase bg-gray-800">Verificando horario...</div>
+<!-- ESTADO MOBILE - Debajo del navbar en móvil -->
+<div id="status-bar-mobile" class="md:hidden w-full py-2 text-center text-xs font-bold uppercase bg-gray-800 relative z-45">Verificando horario...</div>
 <!-- Mobile Menu -->
 <div id="mobile-menu" class="mobile-menu fixed inset-0 z-40 bg-primary-dark/95 backdrop-blur-lg md:hidden">
 <div class="flex flex-col items-center justify-center h-full space-y-6 sm:space-y-8 p-6 sm:p-8">
@@ -691,13 +718,13 @@ Opiniones
 </div>
 </nav>
 
-<!-- TARJETA SERVICIO DE GRÚA - TITILANTE -->
+<!-- TARJETA SERVICIO DE GRÚA - TITILANTE (Posición responsive) -->
 <div class="tow-card">
 <i class="fa-solid fa-truck-tow"></i>
 <span>Servicio de Grúa</span>
 </div>
 
-<!-- BOTÓN FLOTANTE DE AUXILIO MECÁNICO - POSICIÓN SUPERIOR -->
+<!-- BOTÓN FLOTANTE DE AUXILIO MECÁNICO (Posición responsive) -->
 <div class="axile-float-btn">
 <button id="axile-assist-btn" class="axile-btn" title="AUXILIO MECÁNICO 24/7" aria-label="Solicitar auxilio mecánico">
 <i class="fa-solid fa-truck-medical"></i>
@@ -794,8 +821,11 @@ class="parallax-image next">
 <div class="container mx-auto px-4 md:px-6 relative z-10">
 <div class="space-y-4 sm:space-y-6 md:space-y-8 text-center md:text-left">
 <div class="fade-in-up" style="animation-delay: 0.2s;">
+<!-- BADGE ESPECIALISTAS - RESPONSIVO -->
+<div class="hero-badge">
 <div class="inline-block bg-primary-yellow/20 border border-primary-yellow/50 text-primary-yellow px-3 sm:px-4 py-1 rounded-full text-xs sm:text-sm font-bold uppercase tracking-widest">
 <i class="fa-solid fa-truck-pickup mr-2"></i> <span class="hidden sm:inline">ESPECIALISTAS DIESEL/NAFTA</span><span class="sm:hidden">DIESEL/NAFTA</span>
+</div>
 </div>
 </div>
 <h1 class="font-display font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight glow-text neon-pulse fade-in-up hero-title flex flex-wrap items-center justify-center md:justify-start gap-2 sm:gap-3" style="animation-delay: 0.6s;">
