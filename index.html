@@ -387,16 +387,16 @@ box-shadow: 0 10px 30px rgba(255, 215, 0, 0.15);
 }
 .stars { color: #FFD700; }
 
-/* BOTÓN FLOTANTE DE WHATSAPP - INFERIOR */
+/* BOTÓN FLOTANTE DE WHATSAPP - POSICIÓN AJUSTADA PARA NO SUPERPONERSE */
 .whatsapp-float {
 position: fixed;
-bottom: 1rem;
+bottom: 4rem;
 right: 1rem;
 z-index: 50;
 }
 @media (min-width: 768px) {
 .whatsapp-float {
-bottom: 2rem;
+bottom: 5rem;
 right: 2rem;
 }
 }
@@ -453,6 +453,60 @@ transform: translateY(-2px);
 }
 .designer-link i {
 font-size: 0.7rem;
+}
+
+/* TARJETA SERVICIO DE GRÚA - TITILANTE ROJO */
+.tow-card {
+position: fixed;
+top: 4.5rem;
+left: 50%;
+transform: translateX(-50%);
+z-index: 52;
+background: rgba(220, 38, 38, 0.15);
+border: 2px solid #DC2626;
+border-radius: 9999px;
+padding: 0.4rem 1rem;
+display: flex;
+align-items: center;
+gap: 0.5rem;
+animation: towBlink 1.2s ease-in-out infinite;
+box-shadow: 0 0 15px rgba(220, 38, 38, 0.5);
+}
+@keyframes towBlink {
+0%, 100% { 
+opacity: 1; 
+box-shadow: 0 0 15px rgba(220, 38, 38, 0.5);
+border-color: #DC2626;
+}
+50% { 
+opacity: 0.85; 
+box-shadow: 0 0 25px rgba(220, 38, 38, 0.9);
+border-color: #FCA5A5;
+}
+}
+.tow-card i {
+color: #FCA5A5;
+animation: towIconPulse 1.2s ease-in-out infinite;
+}
+@keyframes towIconPulse {
+0%, 100% { transform: scale(1); }
+50% { transform: scale(1.2); }
+}
+.tow-card span {
+color: #FCA5A5;
+font-weight: 700;
+font-size: 0.75rem;
+text-transform: uppercase;
+letter-spacing: 0.05em;
+}
+@media (max-width: 768px) {
+.tow-card {
+top: 4rem;
+padding: 0.3rem 0.8rem;
+}
+.tow-card span {
+font-size: 0.7rem;
+}
 }
 </style>
 </head>
@@ -512,6 +566,12 @@ Opiniones
 </div>
 </nav>
 
+<!-- TARJETA SERVICIO DE GRÚA - TITILANTE -->
+<div class="tow-card">
+<i class="fa-solid fa-truck-tow"></i>
+<span>Servicio de Grúa</span>
+</div>
+
 <!-- BOTÓN FLOTANTE DE AUXILIO MECÁNICO - POSICIÓN SUPERIOR -->
 <div class="axile-float-btn">
 <button id="axile-assist-btn" class="axile-btn" title="AUXILIO MECÁNICO 24/7" aria-label="Solicitar auxilio mecánico">
@@ -569,7 +629,7 @@ Opiniones
 </div>
 </div>
 
-<!-- BOTÓN FLOTANTE DE WHATSAPP - INFERIOR -->
+<!-- BOTÓN FLOTANTE DE WHATSAPP - POSICIÓN AJUSTADA -->
 <div class="whatsapp-float">
 <a href="https://wa.me/5492942563478" target="_blank" rel="noopener noreferrer" class="whatsapp-btn" title="Contactar por WhatsApp">
 <i class="fa-brands fa-whatsapp"></i>
@@ -622,9 +682,9 @@ class="parallax-image next">
 <i class="fa-solid fa-location-dot"></i> <span>Colectora y Ricardo Carpani 400, Zapala, Neuquén</span>
 </p>
 <div class="racing-line max-w-md mx-auto md:mx-0 fade-in-up" style="animation-delay: 1.2s;"></div>
-<p class="text-lg sm:text-xl md:text-2xl lg:text-3xl text-primary-yellow glow-text fade-in-up hero-subtitle hero-subtitle-fade" style="animation-delay: 0.8s;">DIAGNÓSTICO Y REPARACIÓN ESPECIALIZADA</p>
-<p class="text-gray-300 text-xs sm:text-sm md:text-base lg:text-lg max-w-2xl mx-auto md:mx-0 fade-in-up hero-desc hero-desc-fade px-2" style="animation-delay: 1s;">
-Common rail, chip tuning, eliminación de DPF/EGR y mantenimiento integral diesel/naftero. Agenda tu turno rápido por WhatsApp.
+<!-- SUBTÍTULO ACTUALIZADO CON SERVICIOS COMPLETOS -->
+<p class="text-gray-300 text-xs sm:text-sm md:text-base lg:text-lg max-w-3xl mx-auto md:mx-0 fade-in-up hero-desc hero-desc-fade px-2" style="animation-delay: 1s;">
+Common rail, chip tuning, eliminación de DPF/EGR, reparación de bombas rotativas y lineales, mantenimiento integral diesel/naftero. Agenda tu turno rápido por WhatsApp.
 </p>
 <!-- CONTADORES -->
 <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 md:gap-6 pt-4 sm:pt-6 mx-auto md:mx-0 max-w-lg fade-in-up counters-shift px-2" style="animation-delay: 1.4s;">
@@ -670,14 +730,14 @@ Pre-Diagnóstico <i class="fa-solid fa-arrow-right group-hover:translate-x-2 tra
 <p class="text-gray-400 text-xs sm:text-sm md:text-base">Soluciones profesionales para eliminación de DPF, EGR y sistema AdBlue/Urea con reprogramación incluida.</p>
 </div>
 <div class="glass p-4 sm:p-5 md:p-6 lg:p-8 rounded-xl hover-glow">
+<div class="text-primary-yellow text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-2 sm:mb-3 md:mb-4"><i class="fa-solid fa-oil-can"></i></div>
+<h3 class="font-display font-bold text-base sm:text-lg md:text-xl lg:text-2xl mb-1 sm:mb-2 md:mb-3 text-primary-yellow">Bombas Rotativas y Lineales</h3>
+<p class="text-gray-400 text-xs sm:text-sm md:text-base">Reparación especializada de bombas de inyección rotativas y lineales para motores diesel tradicionales con banco de prueba.</p>
+</div>
+<div class="glass p-4 sm:p-5 md:p-6 lg:p-8 rounded-xl hover-glow">
 <div class="text-primary-yellow text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-2 sm:mb-3 md:mb-4"><i class="fa-solid fa-screwdriver-wrench"></i></div>
 <h3 class="font-display font-bold text-base sm:text-lg md:text-xl lg:text-2xl mb-1 sm:mb-2 md:mb-3 text-primary-yellow">Mantenimiento Integral</h3>
 <p class="text-gray-400 text-xs sm:text-sm md:text-base">Servicio completo de mantenimiento preventivo y correctivo para garantizar el óptimo funcionamiento de tu vehículo.</p>
-</div>
-<div class="glass p-4 sm:p-5 md:p-6 lg:p-8 rounded-xl hover-glow">
-<div class="text-primary-yellow text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-2 sm:mb-3 md:mb-4"><i class="fa-solid fa-car-battery"></i></div>
-<h3 class="font-display font-bold text-base sm:text-lg md:text-xl lg:text-2xl mb-1 sm:mb-2 md:mb-3 text-primary-yellow">Sistema Eléctrico</h3>
-<p class="text-gray-400 text-xs sm:text-sm md:text-base">Diagnóstico y reparación de alternadores, baterías, sensores y toda la instalación eléctrica del vehículo.</p>
 </div>
 </div>
 </div>
@@ -754,6 +814,7 @@ Pre-Diagnóstico <i class="fa-solid fa-arrow-right group-hover:translate-x-2 tra
 <option value="Common Rail - Falla de inyectores">Common Rail - Falla de inyectores</option>
 <option value="Common Rail - Bomba de alta">Common Rail - Bomba de alta</option>
 <option value="Common Rail - Sensor de presión">Common Rail - Sensor de presión</option>
+<option value="Bomba Rotativa/Lineal - Falla de inyección">Bomba Rotativa/Lineal - Falla de inyección</option>
 <option value="Chip Tuning - Consulta de reprogramación">Chip Tuning - Consulta de reprogramación</option>
 <option value="DPF/EGR - Obstrucción o falla">DPF/EGR - Obstrucción o falla</option>
 <option value="Sistema eléctrico - Fallas de luces">Sistema eléctrico - Fallas de luces</option>
@@ -801,7 +862,7 @@ Pre-Diagnóstico <i class="fa-solid fa-arrow-right group-hover:translate-x-2 tra
 </section>
 
 <!-- FOOTER -->
-<footer class="bg-primary-dark border-t border-gray-800 py-8 sm:py-12">
+<footer class="bg-primary-dark border-t border-gray-800 py-8 sm:py-12 pb-16">
 <div class="container mx-auto px-4 md:px-6">
 <div class="text-center">
 <div class="font-display font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl text-primary-yellow mb-3 sm:mb-4">MECANICA RAMIREZ ESPECIALIZADA DIESEL/NAFTA</div>
