@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<meta name="description" content="BIANCHINI DANIEL DON TELMO - Service Oficial Vigía en San Pedro. Especialistas en diagnóstico electrónico, inyección y mantenimiento automotriz. Turnos rápidos vía WhatsApp.">
-<title>BIANCHINI DANIEL DON TELMO-SERVICE OFICIAL VIGIA.</title>
+<meta name="description" content="MECANICA ESPECIALIZADA DIESEL/NAFTERO RAMIREZ - Service Oficial en Zapala, Neuquén. Especialistas en diagnóstico electrónico, common rail, chip tuning y mantenimiento diesel/naftero. Turnos rápidos vía WhatsApp.">
+<title>MECANICA ESPECIALIZADA DIESEL/NAFTERO RAMIREZ - SERVICE OFICIAL</title>
 <!-- Tailwind CSS CDN -->
 <script src="https://cdn.tailwindcss.com"></script>
 <!-- Font Awesome -->
@@ -58,85 +58,75 @@ border: 1px solid rgba(255, 215, 0, 0.2);
 @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
 .hover-glow { transition: all 0.4s; }
 .hover-glow:hover { box-shadow: 0 0 35px rgba(255, 215, 0, 0.8); transform: translateY(-10px) scale(1.05); }
-/* EFECTOS DE MOVIMIENTO PARA LA IMAGEN DE FONDO */
+
+/* EFECTOS DE MOVIMIENTO PARA LA IMAGEN DE FONDO - SECUENCIA TRUCK/CAR */
+.parallax-container {
+position: relative;
+overflow: hidden;
+}
 .parallax-image {
-transition: transform 0.5s ease-out;
+position: absolute;
+inset: 0;
+width: 100%;
+height: 100%;
+object-fit: cover;
+opacity: 0;
+transition: opacity 1s ease-in-out;
 will-change: transform;
+}
+.parallax-image.active {
+opacity: 0.4;
 animation: kenburns 20s ease-in-out infinite alternate, subtleFloat 15s ease-in-out infinite;
 transform-origin: center center;
 }
+.parallax-image.next {
+opacity: 0;
+}
+
 @media (max-width: 768px) {
-.parallax-image {
+.parallax-image.active {
 animation: kenburns 30s ease-in-out infinite alternate;
 }
 }
+
 /* Efecto Ken Burns - Zoom suave */
 @keyframes kenburns {
-0% {
-transform: scale(1) translate(0, 0);
+0% { transform: scale(1) translate(0, 0); }
+50% { transform: scale(1.15) translate(-2%, -2%); }
+100% { transform: scale(1.05) translate(2%, 2%); }
 }
-50% {
-transform: scale(1.15) translate(-2%, -2%);
-}
-100% {
-transform: scale(1.05) translate(2%, 2%);
-}
-}
+
 /* Movimiento flotante sutil */
 @keyframes subtleFloat {
-0%, 100% {
-transform: translate(0, 0) scale(1);
+0%, 100% { transform: translate(0, 0) scale(1); }
+25% { transform: translate(1%, -1%) scale(1.02); }
+50% { transform: translate(-1%, 1%) scale(1.01); }
+75% { transform: translate(1%, 1%) scale(1.03); }
 }
-25% {
-transform: translate(1%, -1%) scale(1.02);
-}
-50% {
-transform: translate(-1%, 1%) scale(1.01);
-}
-75% {
-transform: translate(1%, 1%) scale(1.03);
-}
-}
+
 /* Efecto de respiración */
 @keyframes breathe {
-0%, 100% {
-transform: scale(1) rotate(0deg);
+0%, 100% { transform: scale(1) rotate(0deg); }
+50% { transform: scale(1.08) rotate(0.5deg); }
 }
-50% {
-transform: scale(1.08) rotate(0.5deg);
-}
-}
+
 .parallax-bg {
 animation: kenburns 25s ease-in-out infinite alternate, breathe 12s ease-in-out infinite;
 }
+
 /* Movimiento horizontal continuo */
 @keyframes panHorizontal {
-0% {
-transform: translateX(0) scale(1.1);
+0% { transform: translateX(0) scale(1.1); }
+50% { transform: translateX(-3%) scale(1.15); }
+100% { transform: translateX(0) scale(1.1); }
 }
-50% {
-transform: translateX(-3%) scale(1.15);
-}
-100% {
-transform: translateX(0) scale(1.1);
-}
-}
+
 /* Movimiento vertical suave */
 @keyframes panVertical {
-0%, 100% {
-transform: translateY(0) scale(1.05);
+0%, 100% { transform: translateY(0) scale(1.05); }
+50% { transform: translateY(-4%) scale(1.1); }
 }
-50% {
-transform: translateY(-4%) scale(1.1);
-}
-}
-/* Combinación de movimientos */
-.parallax-image.moving-bg {
-animation:
-kenburns 30s ease-in-out infinite alternate,
-subtleFloat 20s ease-in-out infinite,
-panHorizontal 35s ease-in-out infinite;
-}
+
 /* Resto de estilos */
 .input-glow { border-color: #334155; transition: all 0.3s; }
 .input-glow:focus { border-color: #FFD700; box-shadow: 0 0 20px rgba(255, 215, 0, 0.5); }
@@ -227,35 +217,172 @@ input, select, textarea {
 font-size: 16px;
 }
 }
-/* Logo Vigia styles */
-.vigia-logo {
+/* Logo styles */
+.ramirez-logo {
 height: 50px;
 width: auto;
 filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.4));
 transition: all 0.3s ease;
 }
-.vigia-logo:hover {
+.ramirez-logo:hover {
 filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.8));
 transform: scale(1.05);
 }
 @media (max-width: 768px) {
-.vigia-logo {
+.ramirez-logo {
 height: 40px;
 }
 }
-.vigia-logo-large {
+.ramirez-logo-large {
 height: 80px;
 width: auto;
 filter: drop-shadow(0 0 12px rgba(255, 215, 0, 0.6));
 }
 @media (max-width: 768px) {
-.vigia-logo-large {
+.ramirez-logo-large {
 height: 60px;
 }
 }
+
+/* BOTÓN FLOTANTE DE AXILIO MECÁNICO CON EFECTOS */
+.axle-float-btn {
+position: fixed;
+bottom: 6rem;
+right: 1rem;
+left: 1rem;
+z-index: 45;
+display: flex;
+justify-content: center;
+}
+@media (min-width: 768px) {
+.axle-float-btn {
+bottom: 7rem;
+right: 2rem;
+left: auto;
+}
+}
+.axle-btn {
+position: relative;
+background: linear-gradient(135deg, #1E293B, #0A0F1A);
+border: 2px solid #FFD700;
+border-radius: 50%;
+width: 65px;
+height: 65px;
+display: flex;
+align-items: center;
+justify-content: center;
+cursor: pointer;
+transition: all 0.3s ease;
+box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+animation: axleRotate 4s linear infinite, axlePulse 2s ease-in-out infinite;
+}
+.axle-btn:hover {
+transform: scale(1.1) rotate(10deg);
+box-shadow: 0 0 40px rgba(255, 215, 0, 0.8);
+}
+.axle-btn i {
+color: #FFD700;
+font-size: 1.5rem;
+z-index: 2;
+animation: gearSpin 3s linear infinite reverse;
+}
+.axle-btn::before,
+.axle-btn::after {
+content: '';
+position: absolute;
+border-radius: 50%;
+border: 2px dashed #FFD700;
+animation: axleRotate 8s linear infinite reverse;
+}
+.axle-btn::before {
+width: 80px;
+height: 80px;
+border-width: 1px;
+opacity: 0.6;
+}
+.axle-btn::after {
+width: 95px;
+height: 95px;
+border-width: 1px;
+opacity: 0.3;
+}
+@keyframes axleRotate {
+0% { transform: rotate(0deg); }
+100% { transform: rotate(360deg); }
+}
+@keyframes axlePulse {
+0%, 100% { box-shadow: 0 0 20px rgba(255, 215, 0, 0.4); }
+50% { box-shadow: 0 0 35px rgba(255, 215, 0, 0.9); }
+}
+@keyframes gearSpin {
+0% { transform: rotate(0deg); }
+100% { transform: rotate(-360deg); }
+}
+
+/* MODAL DEL FORMULARIO DE ASISTENCIA */
+.modal-overlay {
+position: fixed;
+inset: 0;
+background: rgba(10, 15, 26, 0.95);
+backdrop-filter: blur(8px);
+z-index: 100;
+display: flex;
+align-items: center;
+justify-content: center;
+opacity: 0;
+visibility: hidden;
+transition: all 0.3s ease;
+}
+.modal-overlay.active {
+opacity: 1;
+visibility: visible;
+}
+.modal-content {
+background: rgba(30, 41, 59, 0.95);
+border: 1px solid rgba(255, 215, 0, 0.3);
+border-radius: 1rem;
+padding: 1.5rem;
+max-width: 90%;
+width: 500px;
+max-height: 90vh;
+overflow-y: auto;
+transform: scale(0.9) translateY(20px);
+transition: transform 0.3s ease;
+}
+.modal-overlay.active .modal-content {
+transform: scale(1) translateY(0);
+}
+.modal-close {
+position: absolute;
+top: 1rem;
+right: 1rem;
+color: #FFD700;
+font-size: 1.5rem;
+cursor: pointer;
+transition: transform 0.2s;
+}
+.modal-close:hover {
+transform: rotate(90deg);
+}
+
+/* TESTIMONIOS */
+.testimonial-card {
+background: rgba(30, 41, 59, 0.5);
+border: 1px solid rgba(255, 215, 0, 0.15);
+border-radius: 1rem;
+padding: 1.5rem;
+transition: all 0.3s ease;
+}
+.testimonial-card:hover {
+border-color: rgba(255, 215, 0, 0.4);
+transform: translateY(-5px);
+box-shadow: 0 10px 30px rgba(255, 215, 0, 0.15);
+}
+.stars { color: #FFD700; }
 </style>
 </head>
 <body class="antialiased relative">
+
 <!-- NAVBAR -->
 <nav class="fixed w-full z-50 top-0 glass border-b border-gray-700">
 <div class="container mx-auto px-4 h-20 flex items-center justify-between relative">
@@ -264,13 +391,11 @@ height: 60px;
 <i class="fa-solid fa-bars"></i>
 </button>
 <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 md:static md:translate-x-0 md:translate-y-0 flex items-center gap-2 md:gap-3">
-<!-- LOGO VIGIA AGREGADO -->
-<img src="VIGIA.png" alt="Vigia Service Oficial - Precisión y Protección" class="vigia-logo">
 <a href="#" class="font-display font-bold text-xs sm:text-sm md:text-base lg:text-lg text-primary-yellow tracking-wide uppercase text-center px-2 hidden sm:block">
-BIANCHINI DANIEL DON TELMO-SERVICE OFICIAL VIGIA.
+MECANICA ESPECIALIZADA DIESEL/NAFTERO RAMIREZ
 </a>
 <a href="#" class="font-display font-bold text-xs text-primary-yellow tracking-wide uppercase text-center px-2 sm:hidden">
-SERVICE OFICIAL VIGIA
+RAMIREZ DIESEL/NAFTA
 </a>
 </div>
 <div class="ml-auto flex items-center gap-4 md:gap-6">
@@ -294,14 +419,15 @@ Pre-Diagnóstico
 <button id="close-menu-btn" class="absolute top-6 right-6 text-primary-yellow text-3xl p-2">
 <i class="fa-solid fa-times"></i>
 </button>
-<!-- LOGO VIGIA EN MENU MOBILE -->
-<img src="VIGIA.png" alt="Vigia Service Oficial" class="vigia-logo-large mb-4">
-<p class="text-primary-yellow text-sm font-bold text-center">PRECISIÓN Y PROTECCIÓN</p>
+<p class="text-primary-yellow text-sm font-bold text-center">ESPECIALISTAS DIESEL/NAFTA</p>
 <a href="#diagnostico" class="mobile-menu-link text-xl sm:text-2xl font-bold text-primary-yellow hover:text-white transition py-4 border-b border-gray-700 w-full text-center">
 Pre-Diagnóstico
 </a>
 <a href="#servicios" class="mobile-menu-link text-xl sm:text-2xl font-bold text-gray-300 hover:text-primary-yellow transition py-4 border-b border-gray-700 w-full text-center">
 Servicios
+</a>
+<a href="#testimonios" class="mobile-menu-link text-xl sm:text-2xl font-bold text-gray-300 hover:text-primary-yellow transition py-4 border-b border-gray-700 w-full text-center">
+Opiniones
 </a>
 <div id="status-badge-mobile-menu" class="flex items-center px-6 py-3 rounded-full text-sm font-bold uppercase tracking-wide bg-gray-800 border border-gray-700 mt-4">
 <span id="status-dot-mobile-menu" class="w-3 h-3 rounded-full mr-3"></span>
@@ -318,41 +444,99 @@ Servicios
 </a>
 </div>
 
-<!-- HERO - imagen de fondo con movimiento -->
+<!-- BOTÓN FLOTANTE DE AXILIO MECÁNICO -->
+<div class="axle-float-btn">
+<button id="axle-assist-btn" class="axle-btn" title="Asistencia Mecánica Rápida" aria-label="Solicitar asistencia mecánica">
+<i class="fa-solid fa-gear"></i>
+</button>
+</div>
+
+<!-- MODAL DE ASISTENCIA RÁPIDA -->
+<div id="assist-modal" class="modal-overlay">
+<div class="modal-content relative">
+<button id="modal-close" class="modal-close"><i class="fa-solid fa-times"></i></button>
+<h3 class="font-display font-bold text-xl text-primary-yellow mb-4 text-center glow-text">
+<i class="fa-solid fa-wrench mr-2"></i>Asistencia Rápida
+</h3>
+<form id="assistForm" class="space-y-4">
+<div>
+<label class="block text-primary-yellow font-bold mb-2 text-sm">¿Dónde te encontrás?</label>
+<input type="text" name="location" required class="input-glow w-full px-4 py-3 rounded-lg bg-gray-800/50 border border-gray-600 text-white focus:outline-none" placeholder="Ej: Ruta 22 Km 450, Zapala">
+</div>
+<div>
+<label class="block text-primary-yellow font-bold mb-2 text-sm">Tipo de vehículo</label>
+<select name="vehicleType" required class="input-glow w-full px-4 py-3 rounded-lg bg-gray-800/50 border border-gray-600 text-white focus:outline-none">
+<option value="">Seleccioná una opción...</option>
+<option value="Camión/Pick-up Diesel">Camión/Pick-up Diesel</option>
+<option value="Auto Nafta">Auto Nafta</option>
+<option value="SUV/4x4">SUV/4x4</option>
+<option value="Furgón/Utilitario">Furgón/Utilitario</option>
+<option value="Maquinaria/Equipo pesado">Maquinaria/Equipo pesado</option>
+<option value="Otro">Otro</option>
+</select>
+</div>
+<div>
+<label class="block text-primary-yellow font-bold mb-2 text-sm">Tipo de falla</label>
+<select name="failureType" required class="input-glow w-full px-4 py-3 rounded-lg bg-gray-800/50 border border-gray-600 text-white focus:outline-none">
+<option value="">Seleccioná una opción...</option>
+<option value="No arranca">No arranca</option>
+<option value="Pérdida de potencia">Pérdida de potencia</option>
+<option value="Ruidos extraños">Ruidos extraños</option>
+<option value="Humo excesivo">Humo excesivo</option>
+<option value="Sobrecalentamiento">Sobrecalentamiento</option>
+<option value="Falla eléctrica">Falla eléctrica</option>
+<option value="Check Engine">Check Engine encendido</option>
+<option value="Fuga de líquidos">Fuga de líquidos</option>
+<option value="Otro - Especificar">Otro - Especificar</option>
+</select>
+</div>
+<div>
+<label class="block text-primary-yellow font-bold mb-2 text-sm">Descripción breve</label>
+<textarea name="description" rows="3" class="input-glow w-full px-4 py-3 rounded-lg bg-gray-800/50 border border-gray-600 text-white focus:outline-none" placeholder="Contanos qué le pasa a tu vehículo..."></textarea>
+</div>
+<button type="submit" class="w-full bg-primary-yellow hover:bg-yellow-400 text-primary-dark font-bold py-3 rounded-lg transition hover:shadow-neon uppercase text-sm flex items-center justify-center gap-2">
+<i class="fa-brands fa-whatsapp"></i> Enviar por WhatsApp
+</button>
+</form>
+</div>
+</div>
+
+<!-- HERO - imagen de fondo con secuencia truck/car -->
 <header class="relative pt-24 pb-24 md:pt-32 md:pb-32 lg:pt-40 lg:pb-32 min-h-screen flex items-center overflow-hidden bg-gradient-to-b from-primary-dark to-gray-900 animated-gradient section-padding-mobile">
-<div id="parallax-container" class="absolute inset-0 overflow-hidden">
-<!-- IMAGEN DE FONDO CON MOVIMIENTO -->
-<img id="parallax-img"
+<div id="parallax-container" class="parallax-container absolute inset-0">
+<!-- IMAGEN TRUCK -->
+<img id="parallax-truck"
 src="https://image.qwenlm.ai/public_source/dfca2d32-944a-46ef-a498-b61fb2f6aae7/26e7c8ec9-f9a9-4126-97a8-f1c977ad220b2953.png"
-alt="BIANCHINI DANIEL DON TELMO - Service Oficial Vigía"
-class="parallax-image moving-bg w-full h-full object-cover opacity-40">
+alt="Camión - Mecánica Especializada Ramirez"
+class="parallax-image active">
+<!-- IMAGEN CAR (se muestra después de 4 segundos) -->
+<img id="parallax-car"
+src="https://image.qwenlm.ai/public_source/dfca2d32-944a-46ef-a498-b61fb2f6aae7/26e7c8ec9-f9a9-4126-97a8-f1c977ad220b2953.png"
+alt="Auto - Mecánica Especializada Ramirez"
+class="parallax-image next">
 <div class="absolute inset-0 bg-gradient-to-t from-primary-dark via-primary-dark/70 to-transparent"></div>
 <div class="absolute inset-0 bg-gradient-to-r from-primary-dark/80 via-transparent to-primary-dark/80"></div>
 </div>
 <div class="container mx-auto px-4 md:px-6 relative z-10">
 <div class="space-y-4 sm:space-y-6 md:space-y-8 text-center md:text-left">
 <div class="fade-in-up" style="animation-delay: 0.2s;">
-<!-- LOGO VIGIA PROMINENTE EN HERO -->
-<div class="flex justify-center md:justify-start mb-4">
-<img src="VIGIA.png" alt="Vigia - Precisión y Protección" class="vigia-logo-large">
-</div>
 <div class="inline-block bg-primary-yellow/20 border border-primary-yellow/50 text-primary-yellow px-3 sm:px-4 py-1 rounded-full text-xs sm:text-sm font-bold uppercase tracking-widest">
-<i class="fa-solid fa-car mr-2"></i> <span class="hidden sm:inline">SERVICE OFICIAL VIGÍA</span><span class="sm:hidden">VIGÍA</span>
+<i class="fa-solid fa-truck-pickup mr-2"></i> <span class="hidden sm:inline">ESPECIALISTAS DIESEL/NAFTA</span><span class="sm:hidden">DIESEL/NAFTA</span>
 </div>
 </div>
 <h1 class="font-display font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight glow-text neon-pulse fade-in-up hero-title" style="animation-delay: 0.6s;">
-BIANCHINI DANIEL DON TELMO-SERVICE OFICIAL VIGIA.
+MECANICA ESPECIALIZADA DIESEL/NAFTERO RAMIREZ
 </h1>
 <!-- DIRECCIÓN AGREGADA -->
 <p class="text-primary-yellow glow-text fade-in-up text-sm sm:text-base md:text-lg font-bold mt-1 sm:mt-2 flex items-center justify-center md:justify-start gap-2" style="animation-delay: 0.9s;">
-<i class="fa-solid fa-location-dot"></i> <span>Av. Kennedy 180, San Pedro</span>
+<i class="fa-solid fa-location-dot"></i> <span>Colectora y Ricardo Carpani 400, Zapala, Neuquén</span>
 </p>
 <div class="racing-line max-w-md mx-auto md:mx-0 fade-in-up" style="animation-delay: 1.2s;"></div>
 <p class="text-lg sm:text-xl md:text-2xl lg:text-3xl text-primary-yellow glow-text fade-in-up hero-subtitle hero-subtitle-fade" style="animation-delay: 0.8s;">DIAGNÓSTICO Y REPARACIÓN ESPECIALIZADA</p>
 <p class="text-gray-300 text-xs sm:text-sm md:text-base lg:text-lg max-w-2xl mx-auto md:mx-0 fade-in-up hero-desc hero-desc-fade px-2" style="animation-delay: 1s;">
-Diagnóstico computarizado, inyección electrónica y mantenimiento integral para tu vehículo. Agenda tu turno rápido por WhatsApp.
+Common rail, chip tuning, eliminación de DPF/EGR y mantenimiento integral diesel/naftero. Agenda tu turno rápido por WhatsApp.
 </p>
-<!-- CONTADORES CON UN SOLO SIGNO POR DATO -->
+<!-- CONTADORES -->
 <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 md:gap-6 pt-4 sm:pt-6 mx-auto md:mx-0 max-w-lg fade-in-up counters-shift px-2" style="animation-delay: 1.4s;">
 <div class="text-center p-2 sm:p-3"><span class="block hero-counter text-2xl sm:text-3xl md:text-4xl font-bold text-primary-yellow"><span id="counter1">0</span></span><span class="hero-counter-text block text-xs sm:text-sm text-gray-400 mt-1">Años experiencia</span></div>
 <div class="text-center p-2 sm:p-3"><span class="block hero-counter text-2xl sm:text-3xl md:text-4xl font-bold text-primary-yellow"><span id="counter2">0</span></span><span class="hero-counter-text block text-xs sm:text-sm text-gray-400 mt-1">Vehículos atendidos</span></div>
@@ -371,10 +555,6 @@ Pre-Diagnóstico <i class="fa-solid fa-arrow-right group-hover:translate-x-2 tra
 <section id="servicios" class="py-12 sm:py-16 md:py-24 bg-gradient-to-b from-gray-900 to-primary-dark">
 <div class="container mx-auto px-4 md:px-6">
 <div class="text-center mb-8 sm:mb-12 md:mb-16">
-<!-- LOGO VIGIA EN SERVICIOS -->
-<div class="flex justify-center mb-4">
-<img src="VIGIA.png" alt="Vigia Service Oficial" class="vigia-logo">
-</div>
 <h2 class="font-display font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-primary-yellow mb-3 sm:mb-4 glow-text">NUESTROS SERVICIOS</h2>
 <div class="racing-line max-w-md mx-auto"></div>
 </div>
@@ -382,17 +562,60 @@ Pre-Diagnóstico <i class="fa-solid fa-arrow-right group-hover:translate-x-2 tra
 <div class="glass p-4 sm:p-5 md:p-6 lg:p-8 rounded-xl hover-glow">
 <div class="text-primary-yellow text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-2 sm:mb-3 md:mb-4"><i class="fa-solid fa-microchip"></i></div>
 <h3 class="font-display font-bold text-base sm:text-lg md:text-xl lg:text-2xl mb-1 sm:mb-2 md:mb-3 text-primary-yellow">Diagnóstico Computarizado</h3>
-<p class="text-gray-400 text-xs sm:text-sm md:text-base">Escaneo completo de sistemas electrónicos con equipos de última generación para todas las marcas de vehículos.</p>
+<p class="text-gray-400 text-xs sm:text-sm md:text-base">Escaneo completo de sistemas electrónicos con equipos de última generación para todas las marcas diesel y nafteras.</p>
 </div>
 <div class="glass p-4 sm:p-5 md:p-6 lg:p-8 rounded-xl hover-glow">
 <div class="text-primary-yellow text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-2 sm:mb-3 md:mb-4"><i class="fa-solid fa-gas-pump"></i></div>
-<h3 class="font-display font-bold text-base sm:text-lg md:text-xl lg:text-2xl mb-1 sm:mb-2 md:mb-3 text-primary-yellow">Inyección Electrónica</h3>
-<p class="text-gray-400 text-xs sm:text-sm md:text-base">Limpieza, calibración y reparación de inyectores, sensores y sistemas de alimentación de combustible.</p>
+<h3 class="font-display font-bold text-base sm:text-lg md:text-xl lg:text-2xl mb-1 sm:mb-2 md:mb-3 text-primary-yellow">Sistema Common Rail</h3>
+<p class="text-gray-400 text-xs sm:text-sm md:text-base">Diagnóstico, reparación y calibración de sistemas de inyección common rail de alta presión para motores diesel modernos.</p>
+</div>
+<div class="glass p-4 sm:p-5 md:p-6 lg:p-8 rounded-xl hover-glow">
+<div class="text-primary-yellow text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-2 sm:mb-3 md:mb-4"><i class="fa-solid fa-tachometer-alt"></i></div>
+<h3 class="font-display font-bold text-base sm:text-lg md:text-xl lg:text-2xl mb-1 sm:mb-2 md:mb-3 text-primary-yellow">Chip Tuning</h3>
+<p class="text-gray-400 text-xs sm:text-sm md:text-base">Reprogramación de ECU para optimizar potencia, torque y consumo de combustible con garantía de seguridad.</p>
+</div>
+<div class="glass p-4 sm:p-5 md:p-6 lg:p-8 rounded-xl hover-glow">
+<div class="text-primary-yellow text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-2 sm:mb-3 md:mb-4"><i class="fa-solid fa-filter"></i></div>
+<h3 class="font-display font-bold text-base sm:text-lg md:text-xl lg:text-2xl mb-1 sm:mb-2 md:mb-3 text-primary-yellow">Eliminación DPF, EGR y Urea</h3>
+<p class="text-gray-400 text-xs sm:text-sm md:text-base">Soluciones profesionales para eliminación de DPF, EGR y sistema AdBlue/Urea con reprogramación incluida.</p>
 </div>
 <div class="glass p-4 sm:p-5 md:p-6 lg:p-8 rounded-xl hover-glow">
 <div class="text-primary-yellow text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-2 sm:mb-3 md:mb-4"><i class="fa-solid fa-screwdriver-wrench"></i></div>
 <h3 class="font-display font-bold text-base sm:text-lg md:text-xl lg:text-2xl mb-1 sm:mb-2 md:mb-3 text-primary-yellow">Mantenimiento Integral</h3>
-<p class="text-gray-400 text-xs sm:text-sm md:text-base">Servicio completo de mantenimiento preventivo y correctivo para garantizar el óptimo funcionamiento de tu auto.</p>
+<p class="text-gray-400 text-xs sm:text-sm md:text-base">Servicio completo de mantenimiento preventivo y correctivo para garantizar el óptimo funcionamiento de tu vehículo.</p>
+</div>
+<div class="glass p-4 sm:p-5 md:p-6 lg:p-8 rounded-xl hover-glow">
+<div class="text-primary-yellow text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-2 sm:mb-3 md:mb-4"><i class="fa-solid fa-car-battery"></i></div>
+<h3 class="font-display font-bold text-base sm:text-lg md:text-xl lg:text-2xl mb-1 sm:mb-2 md:mb-3 text-primary-yellow">Sistema Eléctrico</h3>
+<p class="text-gray-400 text-xs sm:text-sm md:text-base">Diagnóstico y reparación de alternadores, baterías, sensores y toda la instalación eléctrica del vehículo.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- SECCIÓN DE TESTIMONIOS -->
+<section id="testimonios" class="py-12 sm:py-16 md:py-24 bg-gradient-to-b from-primary-dark to-gray-900">
+<div class="container mx-auto px-4 md:px-6">
+<div class="text-center mb-8 sm:mb-12 md:mb-16">
+<h2 class="font-display font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-primary-yellow mb-3 sm:mb-4 glow-text">OPINIONES DE CLIENTES</h2>
+<div class="racing-line max-w-md mx-auto"></div>
+<p class="text-gray-300 text-xs sm:text-sm md:text-base lg:text-lg mt-4 px-2">Lo que dicen quienes confiaron en TALLER ESPECIALIZADO RAMIREZ</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+<div class="testimonial-card">
+<div class="stars text-lg mb-2"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+<p class="text-gray-300 text-sm mb-4">"Excelente profesionalidad. Mi camioneta diesel tenía un problema complejo en el common rail y lo solucionaron rápido y con garantía. Totalmente recomendados."</p>
+<p class="text-primary-yellow font-bold text-sm">- Carlos M., Transportista</p>
+</div>
+<div class="testimonial-card">
+<div class="stars text-lg mb-2"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+<p class="text-gray-300 text-sm mb-4">"El chip tuning que me hicieron en Ramirez transformó mi auto. Más potencia, mejor respuesta y hasta bajó el consumo. ¡Un trabajo impecable!"</p>
+<p class="text-primary-yellow font-bold text-sm">- Lucía R., Zapala</p>
+</div>
+<div class="testimonial-card">
+<div class="stars text-lg mb-2"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+<p class="text-gray-300 text-sm mb-4">"Llevé mi furgón con falla de EGR y me explicaron todo con claridad. La eliminación quedó perfecta y el precio fue muy justo. Profesionalismo de primera."</p>
+<p class="text-primary-yellow font-bold text-sm">- Martín G., Comerciante</p>
 </div>
 </div>
 </div>
@@ -415,17 +638,17 @@ Pre-Diagnóstico <i class="fa-solid fa-arrow-right group-hover:translate-x-2 tra
 </div>
 <div>
 <label class="block text-primary-yellow font-bold mb-1 sm:mb-2 text-xs sm:text-sm md:text-base">WhatsApp</label>
-<input type="tel" name="phone" required class="input-glow w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-gray-800/50 border border-gray-600 text-white focus:outline-none text-xs sm:text-sm md:text-base" placeholder="+54 9 3329 ...">
+<input type="tel" name="phone" required class="input-glow w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-gray-800/50 border border-gray-600 text-white focus:outline-none text-xs sm:text-sm md:text-base" placeholder="+54 9 2942 ...">
 </div>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 md:gap-6">
 <div>
 <label class="block text-primary-yellow font-bold mb-1 sm:mb-2 text-xs sm:text-sm md:text-base">Marca y modelo del vehículo</label>
-<input type="text" name="vehicle" required class="input-glow w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-gray-800/50 border border-gray-600 text-white focus:outline-none text-xs sm:text-sm md:text-base" placeholder="Ej: Volkswagen Gol Trend">
+<input type="text" name="vehicle" required class="input-glow w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-gray-800/50 border border-gray-600 text-white focus:outline-none text-xs sm:text-sm md:text-base" placeholder="Ej: Toyota Hilux 2.8">
 </div>
 <div>
 <label class="block text-primary-yellow font-bold mb-1 sm:mb-2 text-xs sm:text-sm md:text-base">Kilometraje</label>
-<input type="number" name="km" required class="input-glow w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-gray-800/50 border border-gray-600 text-white focus:outline-none text-xs sm:text-sm md:text-base" placeholder="Ej: 85000">
+<input type="number" name="km" required class="input-glow w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-gray-800/50 border border-gray-600 text-white focus:outline-none text-xs sm:text-sm md:text-base" placeholder="Ej: 120000">
 </div>
 </div>
 <!-- CAMPO: TIPO DE FALLA -->
@@ -438,14 +661,14 @@ Pre-Diagnóstico <i class="fa-solid fa-arrow-right group-hover:translate-x-2 tra
 <option value="Motor - Ruidos extraños">Motor - Ruidos extraños</option>
 <option value="Motor - Humo excesivo">Motor - Humo excesivo</option>
 <option value="Motor - Dificultad para arrancar">Motor - Dificultad para arrancar</option>
-<option value="Inyección - Falla de inyectores">Inyección - Falla de inyectores</option>
-<option value="Inyección - Sensor MAF/MAP">Inyección - Sensor MAF/MAP</option>
-<option value="Inyección - Sensor de oxígeno">Inyección - Sensor de oxígeno</option>
-<option value="Inyección - Cuerpo mariposa">Inyección - Cuerpo mariposa</option>
+<option value="Common Rail - Falla de inyectores">Common Rail - Falla de inyectores</option>
+<option value="Common Rail - Bomba de alta">Common Rail - Bomba de alta</option>
+<option value="Common Rail - Sensor de presión">Common Rail - Sensor de presión</option>
+<option value="Chip Tuning - Consulta de reprogramación">Chip Tuning - Consulta de reprogramación</option>
+<option value="DPF/EGR - Obstrucción o falla">DPF/EGR - Obstrucción o falla</option>
 <option value="Sistema eléctrico - Fallas de luces">Sistema eléctrico - Fallas de luces</option>
 <option value="Sistema eléctrico - Batería">Sistema eléctrico - Batería</option>
 <option value="Sistema eléctrico - Alternador">Sistema eléctrico - Alternador</option>
-<option value="Sistema eléctrico - Tablero/indicadores">Sistema eléctrico - Tablero/indicadores</option>
 <option value="Check Engine encendido">Check Engine encendido</option>
 <option value="Consumo excesivo de combustible">Consumo excesivo de combustible</option>
 <option value="Ralentí inestable">Ralentí inestable</option>
@@ -472,10 +695,10 @@ Pre-Diagnóstico <i class="fa-solid fa-arrow-right group-hover:translate-x-2 tra
 <label class="block text-primary-yellow font-bold mb-1 sm:mb-2 text-xs sm:text-sm md:text-base">Tipo de uso del vehículo</label>
 <select name="heavyContext" class="input-glow w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-gray-800/50 border border-gray-600 text-white focus:outline-none text-xs sm:text-sm md:text-base">
 <option value="Uso particular">Uso particular</option>
-<option value="Taxi/Remis">Taxi/Remis</option>
 <option value="Transporte de carga">Transporte de carga</option>
+<option value="Taxi/Remis">Taxi/Remis</option>
+<option value="Maquinaria/Obra">Maquinaria/Obra</option>
 <option value="Flota empresarial">Flota empresarial</option>
-<option value="Otros">Otros</option>
 </select>
 </div>
 </div>
@@ -491,35 +714,41 @@ Pre-Diagnóstico <i class="fa-solid fa-arrow-right group-hover:translate-x-2 tra
 <footer class="bg-primary-dark border-t border-gray-800 py-8 sm:py-12">
 <div class="container mx-auto px-4 md:px-6">
 <div class="text-center">
-<!-- LOGO VIGIA EN FOOTER -->
-<img src="VIGIA.png" alt="Vigia Service Oficial - Precisión y Protección" class="vigia-logo-large mx-auto mb-4">
-<div class="font-display font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl text-primary-yellow mb-3 sm:mb-4">BIANCHINI DANIEL DON TELMO-SERVICE OFICIAL VIGIA.</div>
-<p class="text-gray-400 text-xs sm:text-sm md:text-base mb-4 sm:mb-6">Especialistas en diagnóstico y reparación electrónica automotriz</p>
+<div class="font-display font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl text-primary-yellow mb-3 sm:mb-4">MECANICA ESPECIALIZADA DIESEL/NAFTERO RAMIREZ</div>
+<p class="text-gray-400 text-xs sm:text-sm md:text-base mb-4 sm:mb-6">Especialistas en diagnóstico y reparación electrónica automotriz diesel/nafta</p>
 
 <!-- DATOS DE CONTACTO EN TEXTO -->
 <div class="mb-6 sm:mb-8 space-y-2 sm:space-y-3">
 <p class="text-gray-300 text-sm sm:text-base md:text-lg flex items-center justify-center gap-2">
 <i class="fa-solid fa-location-dot text-primary-yellow"></i>
-<span>Av. Kennedy 180, B2930 San Pedro, Provincia de Buenos Aires</span>
+<span>Colectora y Ricardo Carpani 400, Q8340 Zapala, Neuquén</span>
 </p>
 <p class="text-gray-300 text-sm sm:text-base md:text-lg flex items-center justify-center gap-2">
 <i class="fa-brands fa-whatsapp text-primary-yellow"></i>
-<span>WhatsApp: 03329595132</span>
+<span>WhatsApp: 02942563478</span>
+</p>
+<p class="text-gray-400 text-xs sm:text-sm">
+<i class="fa-regular fa-clock mr-1"></i>
+Lun-Vie: 08:30-20:30hs | Sáb: 09:00-13:00hs | Dom: Cerrado
 </p>
 </div>
 
 <!-- BOTONES DE CONTACTO -->
 <div class="flex justify-center gap-4 sm:gap-6 mb-6">
 <!-- BOTÓN DE UBICACIÓN -->
-<a href="https://maps.app.goo.gl/UnWgY3EVPgnxvMYe7" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-primary-yellow text-2xl sm:text-3xl transition" title="Ver ubicación">
+<a href="https://maps.app.goo.gl/yGcLowiTZskEc6hA8" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-primary-yellow text-2xl sm:text-3xl transition" title="Ver ubicación">
 <i class="fa-solid fa-location-dot"></i>
 </a>
 <!-- BOTÓN DE WHATSAPP -->
-<a href="https://wa.me/5493329595132" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-primary-yellow text-2xl sm:text-3xl transition" title="Contactar por WhatsApp">
+<a href="https://wa.me/5492942563478" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-primary-yellow text-2xl sm:text-3xl transition" title="Contactar por WhatsApp">
 <i class="fa-brands fa-whatsapp"></i>
 </a>
+<!-- BOTÓN DE RESEÑA -->
+<a href="https://maps.app.goo.gl/yGcLowiTZskEc6hA8" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-primary-yellow text-2xl sm:text-3xl transition" title="Dejar una reseña">
+<i class="fa-solid fa-star"></i>
+</a>
 </div>
-<p class="text-gray-500 text-xs sm:text-sm">&copy; 2026 BIANCHINI DANIEL DON TELMO-SERVICE OFICIAL VIGIA. Todos los derechos reservados.</p>
+<p class="text-gray-500 text-xs sm:text-sm">&copy; 2026 MECANICA ESPECIALIZADA DIESEL/NAFTERO RAMIREZ. Todos los derechos reservados.</p>
 </div>
 </div>
 </footer>
@@ -555,18 +784,17 @@ mobileMenuLinks.forEach(link => {
 link.addEventListener('click', closeMenu);
 });
 
-// Close menu when clicking outside
 mobileMenu.addEventListener('click', (e) => {
 if (e.target === mobileMenu) {
 closeMenu();
 }
 });
 
-// Contadores animados - CON UN SOLO SIGNO POR DATO
+// Contadores animados
 const counters = [
-{ id: 'counter1', target: 15, suffix: '+' },
-{ id: 'counter2', target: 5000, suffix: '+' },
-{ id: 'counter3', target: 98, suffix: '%' }
+{ id: 'counter1', target: 18, suffix: '+' },
+{ id: 'counter2', target: 3500, suffix: '+' },
+{ id: 'counter3', target: 99, suffix: '%' }
 ];
 
 const animateCounter = (el, target, suffix) => {
@@ -582,12 +810,7 @@ el.textContent = Math.floor(current) + suffix;
 }, 30);
 };
 
-// Intersection Observer para contadores
-const observerOptions = {
-threshold: 0.5,
-rootMargin: '0px'
-};
-
+const observerOptions = { threshold: 0.5 };
 const observer = new IntersectionObserver((entries) => {
 entries.forEach(entry => {
 if (entry.isIntersecting) {
@@ -606,31 +829,122 @@ const el = document.getElementById(counter.id);
 if (el) observer.observe(el);
 });
 
-// Parallax effect mejorado con movimiento
-const parallaxContainer = document.getElementById('parallax-container');
-const parallaxImg = document.getElementById('parallax-img');
+// SECUENCIA DE IMÁGENES CON DELAY DE 4 SEGUNDOS
+const parallaxTruck = document.getElementById('parallax-truck');
+const parallaxCar = document.getElementById('parallax-car');
 
-if (parallaxContainer && parallaxImg) {
-// Only enable scroll parallax on desktop
+if (parallaxTruck && parallaxCar) {
+// Iniciar con truck visible
+parallaxTruck.classList.add('active');
+parallaxCar.classList.remove('active');
+
+// Función para alternar imágenes cada 4 segundos
+const cycleImages = () => {
+// Ocultar truck, mostrar car
+parallaxTruck.classList.remove('active');
+parallaxTruck.classList.add('next');
+parallaxCar.classList.remove('next');
+parallaxCar.classList.add('active');
+
+// Después de 4 segundos, volver al truck
+setTimeout(() => {
+parallaxCar.classList.remove('active');
+parallaxCar.classList.add('next');
+parallaxTruck.classList.remove('next');
+parallaxTruck.classList.add('active');
+}, 4000);
+};
+
+// Iniciar ciclo después de 4 segundos iniciales
+setTimeout(() => {
+cycleImages();
+// Repetir ciclo cada 8 segundos (4s truck + 4s car)
+setInterval(cycleImages, 8000);
+}, 4000);
+
+// Parallax scroll effect solo en desktop
 if (window.innerWidth > 768) {
 window.addEventListener('scroll', () => {
 const scrolled = window.pageYOffset;
-const rate = scrolled * 0.5;
-parallaxImg.style.transform = `translateY(${rate}px) scale(1.1)`;
-});
+const rate = scrolled * 0.3;
+const activeImg = document.querySelector('.parallax-image.active');
+if (activeImg) {
+activeImg.style.transform = `translateY(${rate}px) scale(1.1)`;
 }
-
-// Only enable mouse movement effect on desktop
-if (window.innerWidth > 768) {
-document.addEventListener('mousemove', (e) => {
-const xAxis = (window.innerWidth / 2 - e.pageX) / 50;
-const yAxis = (window.innerHeight / 2 - e.pageY) / 50;
-parallaxImg.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg) scale(1.05)`;
 });
 }
 }
 
-// Form submission
+// BOTÓN DE AXILIO MECÁNICO - MODAL
+const axleBtn = document.getElementById('axle-assist-btn');
+const modal = document.getElementById('assist-modal');
+const modalClose = document.getElementById('modal-close');
+const assistForm = document.getElementById('assistForm');
+
+axleBtn.addEventListener('click', (e) => {
+e.preventDefault();
+modal.classList.add('active');
+body.classList.add('menu-open');
+});
+
+modalClose.addEventListener('click', () => {
+modal.classList.remove('active');
+body.classList.remove('menu-open');
+});
+
+modal.addEventListener('click', (e) => {
+if (e.target === modal) {
+modal.classList.remove('active');
+body.classList.remove('menu-open');
+}
+});
+
+// Formulario de asistencia rápida
+assistForm.addEventListener('submit', (e) => {
+e.preventDefault();
+const btn = e.target.querySelector('button');
+const originalText = btn.innerHTML;
+btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Enviando...';
+btn.disabled = true;
+
+const formData = new FormData(e.target);
+const location = formData.get('location');
+const vehicleType = formData.get('vehicleType');
+const failureType = formData.get('failureType');
+const description = formData.get('description');
+
+const message = `🔧 *¡Hola RAMIREZ! Necesito asistencia* 🚗
+` +
+`📍 *Ubicación:* ${location}
+` +
+`🚙 *Vehículo:* ${vehicleType}
+` +
+`⚠️ *Falla:* ${failureType}
+` +
+`📝 *Descripción:* ${description || 'Sin detalles adicionales'}
+` +
+`🆘 *Solicito:* Diagnóstico y orientación para resolver el problema
+` +
+`⏱️ ¡Quedo a la espera! 🙏`;
+
+const whatsappUrl = `https://api.whatsapp.com/send?phone=5492942563478&text=${encodeURIComponent(message)}`;
+
+setTimeout(() => {
+window.open(whatsappUrl, '_blank');
+btn.innerHTML = '<i class="fa-solid fa-check"></i> ¡Enviado!';
+btn.classList.add('bg-green-600');
+setTimeout(() => {
+btn.innerHTML = originalText;
+btn.classList.remove('bg-green-600');
+btn.disabled = false;
+e.target.reset();
+modal.classList.remove('active');
+body.classList.remove('menu-open');
+}, 2500);
+}, 800);
+});
+
+// Formulario principal de pre-diagnóstico
 document.getElementById('triageForm').addEventListener('submit', (e) => {
 e.preventDefault();
 const btn = e.target.querySelector('button');
@@ -648,9 +962,9 @@ const symptoms = formData.get('symptoms');
 const context = formData.get('context');
 const heavyContext = formData.get('heavyContext');
 
-const message = `🔧 *¡Hola BIANCHINI DANIEL DON TELMO!* 🚗
+const message = `🔧 *¡Hola RAMIREZ!* 🚗
 ` +
-`🔍 *Solicitud de Pre-Diagnóstico - Service Oficial Vigía*
+`🔍 *Solicitud de Pre-Diagnóstico - Diesel/Nafta*
 ` +
 `👤 *Nombre:* ${name}
 ` +
@@ -673,8 +987,7 @@ ${symptoms}
 ` +
 `⏱️ ¡Espero su respuesta! 🚀`;
 
-// WhatsApp actualizado con nuevo número (formato Argentina: 54 + 9 + código área + número)
-const whatsappUrl = `https://api.whatsapp.com/send?phone=5493329595132&text=${encodeURIComponent(message)}`;
+const whatsappUrl = `https://api.whatsapp.com/send?phone=5492942563478&text=${encodeURIComponent(message)}`;
 
 setTimeout(() => {
 window.open(whatsappUrl, '_blank');
@@ -689,90 +1002,55 @@ e.target.reset();
 }, 1000);
 });
 
-// SISTEMA DE ESTADO INTELIGENTE - ABIERTO/CERRADO
+// SISTEMA DE ESTADO INTELIGENTE - HORARIOS ACTUALIZADOS
 const checkStatus = () => {
 const now = new Date();
 const hour = now.getHours();
 const minutes = now.getMinutes();
-const day = now.getDay(); // 0 = Domingo, 1 = Lunes, ..., 6 = Sábado
+const day = now.getDay();
 
-// Horario de atención: Lunes a Viernes de 8:00 a 18:00
-const openingHour = 8;
-const closingHour = 18;
+// Horarios: Lun-Vie 08:30-20:30, Sab 09:00-13:00, Dom cerrado
 const currentTime = hour + (minutes / 60);
+let isOpen = false;
 
-// Verificar si es día hábil (1-5) y dentro del horario
-const isBusinessDay = (day >= 1 && day <= 5);
-const isBusinessHours = (currentTime >= openingHour && currentTime < closingHour);
-const isOpen = isBusinessDay && isBusinessHours;
+if (day >= 1 && day <= 5) { // Lunes a Viernes
+isOpen = (currentTime >= 8.5 && currentTime < 20.5);
+} else if (day === 6) { // Sábado
+isOpen = (currentTime >= 9 && currentTime < 13);
+}
+// Domingo: siempre cerrado
 
-// Elementos del DOM - Desktop
 const statusDotDesktop = document.getElementById('status-dot-desktop');
 const statusTextDesktop = document.getElementById('status-text-desktop');
 const statusBarMobile = document.getElementById('status-bar-mobile');
-
-// Elementos del DOM - Mobile Menu
 const statusDotMobileMenu = document.getElementById('status-dot-mobile-menu');
 const statusTextMobileMenu = document.getElementById('status-text-mobile-menu');
 
 if (isOpen) {
-// ESTADO: ABIERTO - Verde
-if (statusDotDesktop) {
-statusDotDesktop.className = 'w-3 h-3 rounded-full mr-3 bg-green-500 animate-pulse shadow-lg shadow-green-500/50';
-}
-if (statusTextDesktop) {
-statusTextDesktop.textContent = 'Abierto ahora';
-statusTextDesktop.className = 'text-green-400 font-bold';
-}
-if (statusBarMobile) {
-statusBarMobile.textContent = '✓ Abierto ahora - Lun a Vie 8:00 a 18:00';
-statusBarMobile.className = 'md:hidden w-full py-2 text-center text-xs font-bold uppercase bg-green-900/30 text-green-400 border-t border-green-700/50';
-}
-if (statusDotMobileMenu) {
-statusDotMobileMenu.className = 'w-3 h-3 rounded-full mr-3 bg-green-500 animate-pulse';
-}
-if (statusTextMobileMenu) {
-statusTextMobileMenu.textContent = 'Abierto ahora';
-statusTextMobileMenu.className = 'text-green-400 font-bold';
-}
+if (statusDotDesktop) statusDotDesktop.className = 'w-3 h-3 rounded-full mr-3 bg-green-500 animate-pulse shadow-lg shadow-green-500/50';
+if (statusTextDesktop) { statusTextDesktop.textContent = 'Abierto ahora'; statusTextDesktop.className = 'text-green-400 font-bold'; }
+if (statusBarMobile) { statusBarMobile.textContent = '✓ Abierto - Lun-Vie 8:30-20:30 | Sáb 9-13hs'; statusBarMobile.className = 'md:hidden w-full py-2 text-center text-xs font-bold uppercase bg-green-900/30 text-green-400 border-t border-green-700/50'; }
+if (statusDotMobileMenu) statusDotMobileMenu.className = 'w-3 h-3 rounded-full mr-3 bg-green-500 animate-pulse';
+if (statusTextMobileMenu) { statusTextMobileMenu.textContent = 'Abierto ahora'; statusTextMobileMenu.className = 'text-green-400 font-bold'; }
 } else {
-// ESTADO: CERRADO - Rojo
-if (statusDotDesktop) {
-statusDotDesktop.className = 'w-3 h-3 rounded-full mr-3 bg-red-500';
-}
-if (statusTextDesktop) {
-statusTextDesktop.textContent = 'Cerrado';
-statusTextDesktop.className = 'text-red-400 font-bold';
-}
+if (statusDotDesktop) statusDotDesktop.className = 'w-3 h-3 rounded-full mr-3 bg-red-500';
+if (statusTextDesktop) { statusTextDesktop.textContent = 'Cerrado'; statusTextDesktop.className = 'text-red-400 font-bold'; }
 if (statusBarMobile) {
-// Calcular cuándo abre
-let nextOpenDay = '';
-let nextOpenTime = '';
-if (day === 0) {
-// Domingo - abre mañana (Lunes)
-nextOpenDay = 'Mañana (Lun)';
-} else if (day === 6) {
-// Sábado - abre pasado mañana (Lunes)
-nextOpenDay = 'Lunes';
-} else {
-// Entre semana - abre mañana
-nextOpenDay = 'Mañana';
-}
-nextOpenTime = '8:00 hs';
-statusBarMobile.textContent = `✗ Cerrado - Abre ${nextOpenDay} ${nextOpenTime}`;
+let nextInfo = '';
+if (day === 0) nextInfo = 'Abre mañana (Lun) 8:30hs';
+else if (day === 6) nextInfo = 'Abre mañana (Lun) 8:30hs';
+else if (currentTime < 8.5) nextInfo = 'Abre hoy 8:30hs';
+else if (day >= 1 && day <= 5 && currentTime >= 20.5) nextInfo = 'Abre mañana 8:30hs';
+else if (day === 6 && currentTime >= 13) nextInfo = 'Abre lunes 8:30hs';
+else nextInfo = 'Consultar horarios';
+statusBarMobile.textContent = `✗ Cerrado - ${nextInfo}`;
 statusBarMobile.className = 'md:hidden w-full py-2 text-center text-xs font-bold uppercase bg-red-900/30 text-red-400 border-t border-red-700/50';
 }
-if (statusDotMobileMenu) {
-statusDotMobileMenu.className = 'w-3 h-3 rounded-full mr-3 bg-red-500';
-}
-if (statusTextMobileMenu) {
-statusTextMobileMenu.textContent = 'Cerrado';
-statusTextMobileMenu.className = 'text-red-400 font-bold';
-}
+if (statusDotMobileMenu) statusDotMobileMenu.className = 'w-3 h-3 rounded-full mr-3 bg-red-500';
+if (statusTextMobileMenu) { statusTextMobileMenu.textContent = 'Cerrado'; statusTextMobileMenu.className = 'text-red-400 font-bold'; }
 }
 };
 
-// Ejecutar al cargar y actualizar cada minuto
 checkStatus();
 setInterval(checkStatus, 60000);
 });
