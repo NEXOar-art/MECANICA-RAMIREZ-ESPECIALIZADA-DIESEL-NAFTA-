@@ -156,16 +156,29 @@ padding-top: 8rem;
 padding-bottom: 6rem;
 }
 }
-.float-btn {
+
+/* BOTÓN DE TURNO - POSICIÓN OPTIMIZADA */
+.turno-float {
 position: fixed;
-bottom: 6rem;
-z-index: 40;
+bottom: 5.5rem;
+right: 1rem;
+left: 1rem;
+z-index: 48;
 }
 @media (min-width: 768px) {
-.float-btn {
-bottom: 8rem;
+.turno-float {
+bottom: 6.5rem;
 right: 2rem;
 left: auto;
+}
+}
+.turno-btn {
+width: 100%;
+border-radius: 9999px;
+}
+@media (min-width: 768px) {
+.turno-btn {
+width: auto;
 }
 }
 .btn-full-mobile {
@@ -211,30 +224,107 @@ font-size: 16px;
 }
 }
 
-/* LOGO STYLES */
+/* LOGO STYLES - CURVO CON REFLEJO EN HOVER */
+.logo-wrapper {
+position: relative;
+display: inline-block;
+border-radius: 16px;
+overflow: hidden;
+transition: all 0.4s ease;
+}
 .logo-ramirez {
 height: 45px;
 width: auto;
 filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.4));
-transition: all 0.3s ease;
+transition: all 0.4s ease;
+border-radius: 16px;
+display: block;
 }
-.logo-ramirez:hover {
-filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.8));
+/* EFECTO DE REFLEJO EN HOVER */
+.logo-wrapper::after {
+content: '';
+position: absolute;
+top: 0;
+left: -100%;
+width: 60%;
+height: 100%;
+background: linear-gradient(
+90deg,
+transparent,
+rgba(255, 215, 0, 0.3),
+rgba(255, 255, 255, 0.4),
+rgba(255, 215, 0, 0.3),
+transparent
+);
+transform: skewX(-20deg);
+transition: left 0.6s ease;
+pointer-events: none;
+}
+.logo-wrapper:hover::after {
+left: 150%;
+}
+.logo-wrapper:hover .logo-ramirez {
+filter: drop-shadow(0 0 18px rgba(255, 215, 0, 0.8));
 transform: scale(1.05);
 }
 @media (max-width: 768px) {
 .logo-ramirez {
 height: 35px;
+border-radius: 12px;
+}
+.logo-wrapper {
+border-radius: 12px;
 }
 }
 .logo-ramirez-large {
 height: 100px;
 width: auto;
 filter: drop-shadow(0 0 12px rgba(255, 215, 0, 0.6));
+border-radius: 20px;
+display: block;
+transition: all 0.4s ease;
+}
+.logo-wrapper-large {
+position: relative;
+display: inline-block;
+border-radius: 20px;
+overflow: hidden;
+transition: all 0.4s ease;
+}
+/* EFECTO DE REFLEJO PARA LOGO GRANDE */
+.logo-wrapper-large::after {
+content: '';
+position: absolute;
+top: 0;
+left: -100%;
+width: 50%;
+height: 100%;
+background: linear-gradient(
+90deg,
+transparent,
+rgba(255, 215, 0, 0.2),
+rgba(255, 255, 255, 0.5),
+rgba(255, 215, 0, 0.2),
+transparent
+);
+transform: skewX(-20deg);
+transition: left 0.8s ease;
+pointer-events: none;
+}
+.logo-wrapper-large:hover::after {
+left: 150%;
+}
+.logo-wrapper-large:hover .logo-ramirez-large {
+filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.9));
+transform: scale(1.05) rotateY(5deg);
 }
 @media (max-width: 768px) {
 .logo-ramirez-large {
 height: 80px;
+border-radius: 16px;
+}
+.logo-wrapper-large {
+border-radius: 16px;
 }
 }
 
@@ -414,16 +504,16 @@ box-shadow: 0 10px 30px rgba(255, 215, 0, 0.15);
 }
 .stars { color: #FFD700; }
 
-/* BOTÓN FLOTANTE DE WHATSAPP - POSICIÓN AJUSTADA PARA NO SUPERPONERSE */
+/* BOTÓN FLOTANTE DE WHATSAPP - POSICIÓN OPTIMIZADA */
 .whatsapp-float {
 position: fixed;
-bottom: 2rem;
+bottom: 1rem;
 right: 1rem;
-z-index: 50;
+z-index: 49;
 }
 @media (min-width: 768px) {
 .whatsapp-float {
-bottom: 3rem;
+bottom: 1.5rem;
 right: 2rem;
 }
 }
@@ -454,7 +544,7 @@ background: #128C7E;
 /* FIRMA DEL DISEÑADOR */
 .designer-signature {
 position: fixed;
-bottom: 0.5rem;
+bottom: 0.3rem;
 left: 50%;
 transform: translateX(-50%);
 z-index: 45;
@@ -547,8 +637,10 @@ font-size: 0.7rem;
 <i class="fa-solid fa-bars"></i>
 </button>
 <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 md:static md:translate-x-0 md:translate-y-0 flex items-center gap-2 md:gap-3">
-<!-- LOGO RAMIREZ -->
+<!-- LOGO RAMIREZ CON REFLEJO -->
+<div class="logo-wrapper">
 <img src="MECANICARAMIREZ.png" alt="Mecánica Ramirez - Taller Especializado" class="logo-ramirez">
+</div>
 <a href="#" class="font-display font-bold text-xs sm:text-sm md:text-base lg:text-lg text-primary-yellow tracking-wide uppercase text-center px-2 hidden sm:block">
 MECANICA RAMIREZ ESPECIALIZADA DIESEL/NAFTA
 </a>
@@ -577,8 +669,10 @@ Pre-Diagnóstico
 <button id="close-menu-btn" class="absolute top-6 right-6 text-primary-yellow text-3xl p-2">
 <i class="fa-solid fa-times"></i>
 </button>
-<!-- LOGO EN MENU MOBILE -->
+<!-- LOGO EN MENU MOBILE CON REFLEJO -->
+<div class="logo-wrapper-large">
 <img src="MECANICARAMIREZ.png" alt="Mecánica Ramirez" class="logo-ramirez-large mb-4">
+</div>
 <p class="text-primary-yellow text-sm font-bold text-center">ESPECIALISTAS DIESEL/NAFTA</p>
 <a href="#diagnostico" class="mobile-menu-link text-xl sm:text-2xl font-bold text-primary-yellow hover:text-white transition py-4 border-b border-gray-700 w-full text-center">
 Pre-Diagnóstico
@@ -660,7 +754,7 @@ Opiniones
 </div>
 </div>
 
-<!-- BOTÓN FLOTANTE DE WHATSAPP - POSICIÓN AJUSTADA -->
+<!-- BOTÓN FLOTANTE DE WHATSAPP - POSICIÓN OPTIMIZADA -->
 <div class="whatsapp-float">
 <a href="https://wa.me/5492942563478" target="_blank" rel="noopener noreferrer" class="whatsapp-btn" title="Contactar por WhatsApp">
 <i class="fa-brands fa-whatsapp"></i>
@@ -674,8 +768,8 @@ Opiniones
 </a>
 </div>
 
-<!-- Botón flotante de turno - POSICIÓN AJUSTADA -->
-<div class="fixed bottom-32 md:bottom-20 right-4 left-4 md:left-auto z-50 float-btn px-4">
+<!-- Botón flotante de turno - POSICIÓN OPTIMIZADA -->
+<div class="turno-float px-4">
 <a href="#diagnostico" class="bg-primary-yellow hover:bg-yellow-400 text-primary-dark px-6 py-4 rounded-full font-bold shadow-neon transition transform hover:scale-105 flex items-center justify-center gap-3 text-base hover-glow w-full md:w-auto btn-full-mobile">
 <i class="fa-solid fa-calendar-check"></i> <span class="hidden sm:inline">Pedir Turno</span><span class="sm:hidden">Turno</span>
 </a>
@@ -893,11 +987,13 @@ Pre-Diagnóstico <i class="fa-solid fa-arrow-right group-hover:translate-x-2 tra
 </section>
 
 <!-- FOOTER -->
-<footer class="bg-primary-dark border-t border-gray-800 py-8 sm:py-12 pb-20">
+<footer class="bg-primary-dark border-t border-gray-800 py-8 sm:py-12 pb-24">
 <div class="container mx-auto px-4 md:px-6">
 <div class="text-center">
-<!-- LOGO EN FOOTER -->
-<img src="MECANICARAMIREZ.png" alt="Mecánica Ramirez - Taller Especializado" class="logo-ramirez-large mx-auto mb-4">
+<!-- LOGO EN FOOTER CON REFLEJO -->
+<div class="logo-wrapper-large mx-auto mb-4">
+<img src="MECANICARAMIREZ.png" alt="Mecánica Ramirez - Taller Especializado" class="logo-ramirez-large">
+</div>
 <div class="font-display font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl text-primary-yellow mb-3 sm:mb-4">MECANICA RAMIREZ ESPECIALIZADA DIESEL/NAFTA</div>
 <p class="text-gray-400 text-xs sm:text-sm md:text-base mb-4 sm:mb-6">Especialistas en diagnóstico y reparación electrónica automotriz diesel/nafta</p>
 
